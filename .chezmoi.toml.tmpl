@@ -1,0 +1,7 @@
+{{- $workspace := promptString "Workspace: (Type 'personal' or 'work')" -}}
+{{- $name := promptString "Name" -}}
+{{- $email := promptString "Email" -}}
+[data]
+    workspace = "{{ $workspace }}"
+    name = "{{ $name }}"
+    email = "{{ $email }}"

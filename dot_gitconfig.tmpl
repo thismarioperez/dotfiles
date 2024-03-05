@@ -1,0 +1,29 @@
+[alias]
+	aa = add -A
+	amend = commit -a --amend
+	br = branch
+	cm = commit -m
+	cma = !git add -A && git commit -m
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	ec = config --global -e
+	mg = merge
+	ps = push
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	st = status
+	undo = reset HEAD~1 --mixed
+	unstage = reset HEAD --
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+[user]
+	name = "{{ .name }}"
+	email = "{{ .email }}"
+[core]
+	editor = code
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = false
