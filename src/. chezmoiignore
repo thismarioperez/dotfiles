@@ -16,7 +16,8 @@ Documents
 .bash_aliases
 .ssh/id_rsa
 .ssh/id_rsa.pub
-.tmux.conf
 .zshenv
-.config/zsh/
+.config/oh-my-posh
+.config/tmux
+.config/zsh
 {{ end }}
