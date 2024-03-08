@@ -1,0 +1,13 @@
+HISTFILE=$XDG_CONFIG_HOME/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+
+# add Homebrew to PATH on apple silicon
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+zstyle :compinstall filename '/Users/mario/.zshrc'
+
+autoload -Uz compinit
+compinit
+
