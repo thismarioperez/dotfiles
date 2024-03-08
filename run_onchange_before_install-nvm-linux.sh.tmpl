@@ -1,0 +1,26 @@
+{{ if eq .chezmoi.os "linux" }}
+#!/bin/bash
+
+# Install/Update nvm
+# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" | sha256sum }}
+{{ includeTemplate "install-nvm.sh.tmpl" }}
+
+{{   if eq .chezmoi.osRelease.id "debian" }}
+# Debian-specific code
+
+{{   else if eq .chezmoi.osRelease.id "fedora" }}
+echo "Unsupported Linux distribution"
+# Fedora-specific code
+exit 1
+
+{{   else if eq .chezmoi.osRelease.id "arch" }}
+echo "Unsupported Linux distribution"
+# Arch-specific code
+exit 1
+
+{{   else }}
+echo "Unsupported Linux distribution"
+exit 1
+
+{{   end }}
+{{ end }}
