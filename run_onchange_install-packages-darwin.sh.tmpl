@@ -40,6 +40,7 @@ brew "trash"
 brew "tree"
 brew "wimlib"
 brew "zsh"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "1password"
 cask "1password-cli"
 cask "alfred"
@@ -85,5 +86,8 @@ cask "via"
 cask "visual-studio-code"
 cask "vlc"
 EOF
+{{-   else if eq .workspace "work" }}
+# Work package list goes here
+
 {{   end -}}
 {{ end -}}
