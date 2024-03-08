@@ -1,4 +1,22 @@
 README.md
-{{- if ne .chezmoi.os "windows" }}
-dot_config/zsh
-{{ end -}}
+
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/*-darwin.sh.tmpl
+.config/karabiner
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/*-linxu.sh.tmpl
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/*-windows.sh.tmpl
+Documents
+{{ else }}
+.bash_aliases
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.tmux.conf
+.zshenv
+.config/zsh/
+{{ end }}
