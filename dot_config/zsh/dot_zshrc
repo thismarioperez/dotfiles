@@ -11,9 +11,9 @@ zstyle :compinstall filename '/Users/mario/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Safely load oh-my-posh in any terminal except for apple terminal
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-    eval "$(oh-my-posh init zsh)"
+# Safely load oh-my-posh
+if command -v oh-my-posh 1>/dev/null 2>&1; then
+    eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/night-owl.omp.json)"
 fi
 
 # Safely load nvm and it's completions
