@@ -1,10 +1,22 @@
 #!/bin/bash
 {{ if eq .chezmoi.os "linux" }}
 {{   if eq .chezmoi.osRelease.id "debian" }}
+sudo apt update \
+&& sudo apt install \
+	bat \
+	chezmoi \
+	fzf \
+	git \
+	nano \
+	tmux \
+	zsh
+echo "Unsupported Linux distribution"
 # Debian-specific code
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
+echo "Unsupported Linux distribution"
 # Fedora-specific code
 {{   else if eq .chezmoi.osRelease.id "arch" }}
+echo "Unsupported Linux distribution"
 # Arch-specific code
 {{   else }}
 echo "Unsupported Linux distribution"
