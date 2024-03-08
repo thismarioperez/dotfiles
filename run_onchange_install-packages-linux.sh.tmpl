@@ -33,4 +33,9 @@ echo "Unsupported Linux distribution"
 exit 1
 
 {{   end }}
+
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+	# WSL-specific code
+{{   end }}
+
 {{ end }}
