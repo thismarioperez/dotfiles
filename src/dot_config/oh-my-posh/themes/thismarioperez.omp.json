@@ -17,22 +17,24 @@
             "type": "os"
           },
           {
-            "background": "#ef5350",
-            "foreground": "#ffeb95",
-            "powerline_symbol": "\ue0b0",
-            "style": "powerline",
-            "template": " \uf292 ",
-            "type": "root"
+            "background": "#011627",
+            "foreground": "#906cff",
+            "properties": {
+              "display_host": false
+            },
+            "style": "diamond",
+            "template": "{{if .Root}} <#ef5350>\uf0e7 {{.UserName}}</> {{else}} {{.UserName}} {{end}}",
+            "type": "session"
           },
           {
             "background": "#82AAFF",
             "foreground": "#011627",
             "powerline_symbol": "\ue0b0",
             "properties": {
-              "folder_icon": "\uf07c ",
+              "folder_icon": "\uf115 ",
               "folder_separator_icon": "<#011627>\ue0b1</> ",
               "home_icon": " \ueb06 ",
-              "style": "agnoster"
+              "style": "agnoster_short"
             },
             "style": "powerline",
             "template": "{{ path .Path .Location }}",
@@ -87,15 +89,6 @@
             "template": "\uf489  {{ .Name }} ",
             "trailing_diamond": "<transparent,#d6deeb>\ue0b2</>",
             "type": "shell"
-          },
-          {
-            "background": "#8f43f3",
-            "foreground": "#ffffff",
-            "leading_diamond": "\ue0b2",
-            "style": "diamond",
-            "template": "\ue266 {{ round .PhysicalPercentUsed .Precision }}% ",
-            "trailing_diamond": "<transparent,#8f43f3>\ue0b2</>",
-            "type": "sysinfo"
           },
           {
             "background": "#ffffff",
@@ -380,7 +373,7 @@
               "always_enabled": true
             },
             "style": "plain",
-            "template": "\ue285",
+            "template": " >",
             "type": "status"
           }
         ],
@@ -392,7 +385,7 @@
     "transient_prompt": {
       "background": "transparent",
       "foreground": "#d6deeb",
-      "template": "\ue285 "
+      "template": " <#906cff>></> "
     },
     "version": 2
   }
