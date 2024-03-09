@@ -382,7 +382,7 @@
             "type": "prompt"
         }
     ],
-    "console_title_template": "{{ .UserName }}@{{ .HostName }} – {{ .Folder }}",
+    "console_title_template": "{{ .UserName }}@{{ .HostName }} in {{ .PWD }}",
     "final_space": true,
     "transient_prompt": {
         "background": "transparent",
