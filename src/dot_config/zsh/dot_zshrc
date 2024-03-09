@@ -8,8 +8,7 @@ bindkey -e
 
 zstyle :compinstall filename '/Users/mario/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
 
 # Safely load oh-my-posh
 if command -v oh-my-posh 1>/dev/null 2>&1; then
@@ -23,7 +22,12 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 # Plugins
 export ZSH_PLUGIN_DIR=$ZDOTDIR/plugins
-# Always load syntax highlighting last
+
+if [ -d "$ZSH_PLUGIN_DIR/fzf-tab" ]; then
+    source "$ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh"
+fi
+
+# Syntax Highlighting - ALWAYS LOAD LAST
 if [ -d "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting" ]; then
     source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
