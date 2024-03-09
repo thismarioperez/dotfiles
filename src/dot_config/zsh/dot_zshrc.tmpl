@@ -46,6 +46,11 @@ if [ -f "$ZSH_PLUGIN_DIR/git/git.plugin.sh" ]; then
     source "$ZSH_PLUGIN_DIR/git/git.plugin.sh"
 fi
 
+# zsh-autosuggestions 
+if [ -f "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 # zsh-syntax-highlighting - ALWAYS LOAD LAST
 if [ -f "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
