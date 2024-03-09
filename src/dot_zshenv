@@ -1,6 +1,7 @@
 # shell config
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export EDITOR="code"
@@ -13,6 +14,9 @@ export PATH="$PATH:.node_modules/.bin"
 typeset -U PATH path
 
 # package configs
+# less
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+
 # fzf
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
