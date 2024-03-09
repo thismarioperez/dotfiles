@@ -5,20 +5,18 @@
 #   -----------------------------
 #   MAKE TERMINAL BETTER
 #   -----------------------------
-alias edit='$EDITOR'                                # edit:         Opens any file in code editor
+alias edit='$EDITOR'                                # edit: Opens any file in code editor
 alias cp='cp -iv'                                   # Preferred 'cp' implementation
 alias mv='mv -iv'                                   # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                             # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                               # Preferred 'ls' implementation
-if [ -x "$(command -v exa)" ]; then
-    # Prefer exa to ls
+if [ -x "$(command -v exa)" ]; then                 # Prefer exa to ls
     alias l="exa"
     alias la="exa -a"
     alias ls="exa -l -g --icons"
     alias ll="ls -al"
 fi
-if [ -x "$(command -v bat)" ]; then
-    # Prefer bat to cat
+if [ -x "$(command -v bat)" ]; then                 # Prefer bat to cat
     alias cat="bat"
 fi
 alias -- -='cd -'
@@ -72,7 +70,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   ---------------------------------------
 #   4.  Productivity
 #   ---------------------------------------
-# Tmux list sessions
 tmux_ls() {
   tmux ls -F'#{session_id}' | while read -r s; do
     S=$(tmux ls -F'#{session_id}#{session_name}: #{T:tree_mode_format}' | grep ^"$s")
@@ -90,7 +87,7 @@ tmux_ls() {
   done
 }
 
-alias tmls='tmux_ls'
+alias tmls='tmux_ls'                               # tmls:  Tmux list sessions
 
 # Tmux attach to session
 tmux_attach() {
@@ -106,7 +103,7 @@ tmux_attach() {
 
 }
 
-alias tma='tmux_attach'
+alias tma='tmux_attach'                            # tma:  Tmux attach to session
 
 # Tmux new session
 tmux_new() {
@@ -130,7 +127,7 @@ tmux_new() {
   fi
 }
 
-alias tmn='tmux_new'
+alias tmn='tmux_new'                              # tmn:  Tmux new session
 
 # Tmux session killer
 tmux_kill() {
@@ -140,5 +137,5 @@ tmux_kill() {
   tmux kill-session -t "$session"
 }
 
-alias tmk='tmux_kill'    
+alias tmk='tmux_kill'                             # tmk:  Tmux session killer
 {{- end }}
