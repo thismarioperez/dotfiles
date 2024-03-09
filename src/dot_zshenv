@@ -14,9 +14,6 @@ export PATH="$PATH:.node_modules/.bin"
 typeset -U PATH path
 
 # package configs
-# less
-export LESSHISTFILE="$XDG_STATE_HOME"/less/history
-
 # fzf
 export FZF_DEFAULT_COMMAND="fd . $HOME"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
