@@ -37,7 +37,7 @@
                         "style": "agnoster_short"
                     },
                     "style": "powerline",
-                    "template": "{{ path .Path .Location }} ",
+                    "template": " {{ path .Path .Location }} ",
                     "type": "path"
                 },
                 {
@@ -375,19 +375,19 @@
                         "always_enabled": true
                     },
                     "style": "plain",
-                    "template": " >",
+                    "template": " \u276f",
                     "type": "status"
                 }
             ],
             "type": "prompt"
         }
     ],
-    "console_title_template": "{{ .Folder }}",
+    "console_title_template": "{{ .UserName }}@{{ .HostName }} – {{ .Folder }}",
     "final_space": true,
     "transient_prompt": {
         "background": "transparent",
         "foreground": "#906cff",
-        "template": " > "
+        "template": " \u276f "
     },
     "version": 2
 }
