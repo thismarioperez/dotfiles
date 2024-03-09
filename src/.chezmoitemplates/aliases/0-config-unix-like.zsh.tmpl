@@ -1,0 +1,154 @@
+{{- if (or .chezmoi.os "linux" .chezmoi.os "darwin") }}
+#   ---------------------------------------
+#   Aliases shared between OSX and Linux
+#   ---------------------------------------
+#   -----------------------------
+#   MAKE TERMINAL BETTER
+#   -----------------------------
+alias edit='$EDITOR'                                # edit:         Opens any file in code editor
+alias cp='cp -iv'                                   # Preferred 'cp' implementation
+alias mv='mv -iv'                                   # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                             # Preferred 'mkdir' implementation
+alias ll='ls -FGlAhp'                               # Preferred 'ls' implementation
+if [ -x "$(command -v exa)" ]; then
+    # Prefer exa to ls
+    alias l="exa"
+    alias la="exa -a"
+    alias ls="exa -l -g --icons"
+    alias ll="ls -al"
+fi
+if [ -x "$(command -v bat)" ]; then
+    # Prefer bat to cat
+    alias cat="bat"
+fi
+alias -- -='cd -'
+alias ..='cd ../'
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+alias ......='../../../../..'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+alias .6='cd ../../../../../../'
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+alias edit_shell='edit ~/.zshrc'                    # Shortcut to edit zshrc
+alias reload='source ~/.zshrc'                      # Shortcut to reload zshrc
+alias ~="cd ~"                                      # ~:            Go Home
+alias c='clear'                                     # c:            Clear terminal display
+alias path='echo -e ${PATH//:/\\n}'                 # path:         Echo all executable Paths
+alias cic='set completion-ignore-case On'           # cic:          Make tab-completion case-insensitive
+
+#   -------------------------------
+#   2.  FILE AND FOLDER MANAGEMENT
+#   -------------------------------
+alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
+alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
+alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
+alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10mb size (all zeros)
+
+#   ---------------------------
+#   3.  NETWORKING
+#   ---------------------------
+alias myip='curl ifconfig.co'                       # myip:         Public facing IP Address
+alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+
+#   ---------------------------------------
+#   4.  Productivity
+#   ---------------------------------------
+# @see: https://github.com/junegunn/fzf/wiki/Examples#integration-with-z
+# like normal z when used with arguments but displays an fzf prompt when used without.
+jump() {
+  [ $# -gt 0 ] && _z "$*" && return
+  # cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+  cd "$(z -l | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
+
+alias j='jump'
+
+# Tmux list sessions
+tmux_ls() {
+  tmux ls -F'#{session_id}' | while read -r s; do
+    S=$(tmux ls -F'#{session_id}#{session_name}: #{T:tree_mode_format}' | grep ^"$s")
+    session_info=${S##$s}
+    session_name=$(echo "$session_info" | cut -d ':' -f 1)
+    if [[ -n "$1" ]] && [[ "$1" == "$session_name" ]]; then
+      echo -e "\033[1;34m$session_info\033[0m"
+    else
+      echo -e "\033[1m$session_info\033[0m"
+    fi
+    tmux lsw -t"$s" -F'#{window_id}' | while read -r w; do
+      W=$(tmux lsw -t"$s" -F'#{window_id}#{T:tree_mode_format}' | grep ^"$w")
+      echo "  🖥️  ${W##$w}"
+    done
+  done
+}
+
+alias tmls='tmux_ls'
+
+# Tmux attach to session
+tmux_attach() {
+  # List tmux sessions and select one with fzf
+  session=$(
+    tmux list-sessions | awk -F: '{print $1}' | fzf --exit-0
+  )
+
+  # Attach to the selected tmux session
+  if [ -n "$session" ]; then
+    tmux attach -t "$session"
+  fi
+
+}
+
+alias tma='tmux_attach'
+
+# Tmux new session
+tmux_new() {
+  read "session_name?Enter the session name: "
+
+  # Check if the session name is empty
+  if [[ -z "$session_name" ]]; then
+    echo "Session name cannot be empty."
+    return 1
+  fi
+
+  # Check if the session already exists
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    echo "Session '$session_name' already exists. Attaching to it."
+    tmux attach -t "$session_name"
+  else
+    # Create a new session with the provided name
+    tmux new-session -d -s "$session_name"
+    echo "New session '$session_name' created."
+    tmux attach -t "$session_name"
+  fi
+}
+
+alias tmn='tmux_new'
+
+# Tmux session killer
+tmux_kill() {
+  session=$(
+    tmux list-sessions | awk -F: '{print $1}' | fzf --exit-0
+  )
+  tmux kill-session -t "$session"
+}
+
+alias tmk='tmux_kill'    
+{{- end }}
