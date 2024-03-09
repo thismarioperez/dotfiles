@@ -23,11 +23,17 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 # Plugins
 export ZSH_PLUGIN_DIR=$ZDOTDIR/plugins
 
+# fzf-tab
 if [ -d "$ZSH_PLUGIN_DIR/fzf-tab" ]; then
     source "$ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh"
+    # configure
+    # use popup mode in tmux
+    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+    # disable sort when completing `git checkout`
+    zstyle ':completion:*:git-checkout:*' sort false
 fi
 
-# Syntax Highlighting - ALWAYS LOAD LAST
+# zsh-syntax-highlighting - ALWAYS LOAD LAST
 if [ -d "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting" ]; then
     source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
