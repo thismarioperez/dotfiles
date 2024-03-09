@@ -37,7 +37,7 @@
               "style": "agnoster_short"
             },
             "style": "powerline",
-            "template": "{{ path .Path .Location }}",
+            "template": "{{ path .Path .Location }} ",
             "type": "path"
           },
           {
