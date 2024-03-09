@@ -33,6 +33,11 @@ if [ -d "$ZSH_PLUGIN_DIR/fzf-tab" ]; then
     zstyle ':completion:*:git-checkout:*' sort false
 fi
 
+# git
+if [ -d "$ZSH_PLUGIN_DIR/git" ]; then
+    source "$ZSH_PLUGIN_DIR/git/git.plugin.sh"
+fi
+
 # zsh-syntax-highlighting - ALWAYS LOAD LAST
 if [ -d "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting" ]; then
     source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
