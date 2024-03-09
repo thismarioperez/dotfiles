@@ -5,6 +5,10 @@
 echo "Installing oh-my-posh..."
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
+# Install zoxide for all distributions
+echo "Installing zoxide"
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 {{   if eq .chezmoi.osRelease.id "debian" }}
 # Debian-specific code
 

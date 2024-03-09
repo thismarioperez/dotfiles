@@ -72,16 +72,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   ---------------------------------------
 #   4.  Productivity
 #   ---------------------------------------
-# @see: https://github.com/junegunn/fzf/wiki/Examples#integration-with-z
-# like normal z when used with arguments but displays an fzf prompt when used without.
-jump() {
-  [ $# -gt 0 ] && _z "$*" && return
-  # cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
-  cd "$(z -l | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
-}
-
-alias j='jump'
-
 # Tmux list sessions
 tmux_ls() {
   tmux ls -F'#{session_id}' | while read -r s; do

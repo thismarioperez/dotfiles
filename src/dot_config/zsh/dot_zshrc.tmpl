@@ -26,6 +26,11 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 # Plugins
 export ZSH_PLUGIN_DIR=$ZDOTDIR/plugins
 
+# zoxide
+if command -v zoxide 1>/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
 # fzf
 if [ -f "$ZSH_PLUGIN_DIR/fzf/fzf.plugin.sh" ]; then
     source "$ZSH_PLUGIN_DIR/fzf/fzf.plugin.sh"
