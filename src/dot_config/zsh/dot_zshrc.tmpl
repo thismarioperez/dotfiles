@@ -9,6 +9,14 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH for local node_modules - Keep this last in case node modules don't exist
+PATH="$PATH:node_modules/.bin"
+PATH="$PATH:.node_modules/.bin"
+
+# remove duplicate entries from $PATH
+# zsh uses $path array along with $PATH
+typeset -U PATH path
+
 # create cache directories if they don't exist
 if [ ! -d $XDG_CACHE_HOME ]; then
     mkdir -p $XDG_CACHE_HOME
