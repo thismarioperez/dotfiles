@@ -1,4 +1,10 @@
+export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvm"
+
 function install_nvm() {
+	if [ ! -d "$NVM_DIR" ]; then
+		echo "Creating $NVM_DIR"
+		mkdir -p "$NVM_DIR"
+	fi
 	echo "Installing/Updating nvm..."
 	# Install nvm without modifying shell profile
 	# @see: https://github.com/nvm-sh/nvm?tab=readme-ov-file#additional-notes
@@ -7,6 +13,6 @@ function install_nvm() {
 
 install_nvm
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-nvm install --lts  # install lts
+nvm install --lts # install lts
