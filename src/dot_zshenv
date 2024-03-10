@@ -12,10 +12,3 @@ export PATH="$PATH:.node_modules/.bin"
 # remove duplicate entries from $PATH
 # zsh uses $path array along with $PATH
 typeset -U PATH path
-
-# package configs
-# fzf
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-export FZF_COMPLETION_TRIGGER='**'
