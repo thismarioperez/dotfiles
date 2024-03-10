@@ -1,0 +1,47 @@
+# set xdg directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# create cache directories if they don't exist
+if [ ! -d $XDG_CACHE_HOME ]; then
+    mkdir -p $XDG_CACHE_HOME
+fi
+
+if [ ! -d $XDG_CACHE_HOME/zsh ]; then
+    mkdir -p $XDG_CACHE_HOME/zsh
+fi
+
+# update path
+# set PATH so it includes user's bin if it exists
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+{{- if eq .chezmoi.os "darwin" }}
+# add Homebrew to PATH
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end }}
+
+# safely add android tools to PATH
+if [ -v "$HOME/Library/Android/sdk" ]; then
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/emulator
+    export PATH=$PATH:$ANDROID_HOME/tools
+    export PATH=$PATH:$ANDROID_HOME/tools/bin
+    export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
+
+# set PATH for local node_modules - Keep this last in case node modules don't exist
+PATH="$PATH:node_modules/.bin"
+PATH="$PATH:.node_modules/.bin"
+
+# remove duplicate entries from $PATH
+# zsh uses $path array along with $PATH
+typeset -U PATH path

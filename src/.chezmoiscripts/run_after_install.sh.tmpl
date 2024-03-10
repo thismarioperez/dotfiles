@@ -1,7 +1,0 @@
-{{- if or .chezmoi.os "darwin" "linux" -}}
-#!/bin/bash
-
-echo "Running \"exec zsh\" to reload your shell..."
-exec zsh
-
-{{ end -}}
