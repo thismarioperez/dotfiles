@@ -2,8 +2,8 @@
 #!/bin/bash
 
 # Install/Update nvm
-# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" | sha256sum }}
-{{ includeTemplate "install-nvm.sh.tmpl" }}
+# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
+{{ includeTemplate "install-nvm.sh.tmpl" . }}
 
 {{   if eq .chezmoi.osRelease.id "debian" }}
 # Debian-specific code
