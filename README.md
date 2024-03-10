@@ -34,7 +34,7 @@ Ubuntu Linux
 Install with:
 
 ```shell
-sudo snap install chezmoi --classic && \
+sh -c "$(curl -fsLS get.chezmoi.io)" && \
 sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
 ```
 
