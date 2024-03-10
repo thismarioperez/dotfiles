@@ -1,4 +1,4 @@
-{{- if (or .chezmoi.os "linux" .chezmoi.os "darwin") }}
+{{- if or .chezmoi.os "darwin" "linux" }}
 [".local/share/zsh/plugins/fzf/fzf.plugin.sh"]
     type = "file"
     url = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/fzf/fzf.plugin.zsh"
