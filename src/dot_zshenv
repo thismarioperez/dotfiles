@@ -10,7 +10,7 @@ export EDITOR="code"
 export PATH="$PATH:node_modules/.bin" # for local node_modules
 export PATH="$PATH:.node_modules/.bin"
 # remove duplicate entries from $PATH
-# zsh uses $path array along with $PATH 
+# zsh uses $path array along with $PATH
 typeset -U PATH path
 
 # package configs

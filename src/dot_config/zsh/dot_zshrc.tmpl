@@ -1,7 +1,15 @@
+# ZSH configuration
 HISTFILE=$XDG_CONFIG_HOME/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+ENABLE_CORRECTION="true"
 bindkey -e
+
+zstyle ':compinstall' filename "$HOME/.zshrc"
+
+# Load and configure zsh completion
+autoload -Uz compinit
+compinit
 
 # add Homebrew to PATH on apple silicon
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -15,10 +23,6 @@ if [ -v "$ANDROID_HOME" ]; then
     export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
-zstyle :compinstall filename '/Users/mario/.zshrc'
-
-autoload -Uz compinit; compinit
-
 # Safely load oh-my-posh
 if command -v oh-my-posh 1>/dev/null 2>&1; then
     eval "$(oh-my-posh init zsh --config $XDG_DATA_HOME/oh-my-posh/themes/thismarioperez.omp.json)"
@@ -26,8 +30,8 @@ fi
 
 # Safely load nvm and it's completions
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Aliases
 {{ includeTemplate "aliases/zsh/index.zsh.tmpl" . }}
@@ -60,8 +64,9 @@ if [ -f "$ZSH_PLUGIN_DIR/git/git.plugin.sh" ]; then
     source "$ZSH_PLUGIN_DIR/git/git.plugin.sh"
 fi
 
-# zsh-autosuggestions 
+# zsh-autosuggestions
 if [ -f "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
     source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
