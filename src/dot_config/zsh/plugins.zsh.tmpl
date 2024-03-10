@@ -1,0 +1,38 @@
+# Plugins
+export ZSH_PLUGINS_PATH="$XDG_DATA_HOME/zsh/plugins"
+
+# zoxide
+if command -v zoxide 1>/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
+# fzf
+if [ -f "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.sh" ]; then
+    source "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.sh"
+fi
+
+# fzf-tab
+if [ -f "$ZSH_PLUGINS_PATH/fzf-tab/fzf-tab.plugin.zsh" ]; then
+    source "$ZSH_PLUGINS_PATH/fzf-tab/fzf-tab.plugin.zsh"
+    # configure
+    # use popup mode in tmux
+    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+    # disable sort when completing `git checkout`
+    zstyle ':completion:*:git-checkout:*' sort false
+fi
+
+# git
+if [ -f "$ZSH_PLUGINS_PATH/git/git.plugin.sh" ]; then
+    source "$ZSH_PLUGINS_PATH/git/git.plugin.sh"
+fi
+
+# zsh-autosuggestions
+if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
+# zsh-syntax-highlighting - ALWAYS LOAD LAST
+if [ -f "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
