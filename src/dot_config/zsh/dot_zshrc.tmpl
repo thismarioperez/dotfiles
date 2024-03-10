@@ -14,8 +14,10 @@ SAVEHIST=1000
 ENABLE_CORRECTION="true"
 bindkey -e # use emacs key bindings (default)
 
-# add Homebrew to PATH on apple silicon
+{{- if eq .chezmoi.os "darwin" }}
+# add Homebrew to PATH
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end }}
 
 # safely add android tools to PATH
 if [ -v "$HOME/Library/Android/sdk" ]; then
