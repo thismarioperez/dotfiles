@@ -4,11 +4,3 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export EDITOR="code"
-
-# update path
-export PATH="$PATH:node_modules/.bin" # for local node_modules
-export PATH="$PATH:.node_modules/.bin"
-# remove duplicate entries from $PATH
-# zsh uses $path array along with $PATH
-typeset -U PATH path
