@@ -1,14 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-# Install oh-my-posh for all distributions
-echo "Installing oh-my-posh..."
-curl -s https://ohmyposh.dev/install.sh | bash -s
-
-# Install zoxide for all distributions
-echo "Installing zoxide"
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
 {{   if or .chezmoi.osRelease.id "debian" "ubuntu" }}
 # Ubuntu/Debian-specific code
 
@@ -21,7 +13,16 @@ sudo apt install \
 	git \
 	nano \
 	tmux \
+	unzip \
 	zsh
+
+# Install oh-my-posh for all distributions
+echo "Installing oh-my-posh..."
+curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# Install zoxide for all distributions
+echo "Installing zoxide"
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 echo "Unsupported Linux distribution"
