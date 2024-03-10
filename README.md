@@ -46,5 +46,5 @@ Dotfiles are managed with (chezmoi)[https://www.chezmoi.io/].
 To get started on a new system, first, make sure you meet the system requirements. Then, run:
 
 ```
-chezmoi init https://github.com/thismarioperez/dotfiles.git
+chezmoi init --apply --verbose https://github.com/thismarioperez/dotfiles.git
 ```
