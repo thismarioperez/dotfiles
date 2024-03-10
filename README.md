@@ -34,6 +34,7 @@ Ubuntu Linux
 Install with:
 
 ```shell
+echo "PATH=\"\$HOME/bin:\$PATH\"" >> ~/.zshrc && \
 sh -c "$(curl -fsLS get.chezmoi.io)" && \
 sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
 ```
