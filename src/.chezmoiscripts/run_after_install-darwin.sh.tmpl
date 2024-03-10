@@ -1,6 +1,7 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-echo "Run \"exec zsh\" to reload your shell"
+echo "Running \"exec zsh\" to reload your shell"
+exec zsh
 
 {{ end -}}
