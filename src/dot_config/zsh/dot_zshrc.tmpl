@@ -1,5 +1,14 @@
+# create cache directories if they don't exist
+if [ ! -d $XDG_CACHE_HOME ]; then
+    mkdir -p $XDG_CACHE_HOME
+fi
+
+if [ ! -d $XDG_CACHE_HOME/zsh ]; then
+    mkdir -p $XDG_CACHE_HOME/zsh
+fi
+
 # ZSH configuration
-HISTFILE=$XDG_CONFIG_HOME/.histfile
+HISTFILE=$XDG_CACHE_HOME/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 ENABLE_CORRECTION="true"
@@ -22,6 +31,12 @@ if [ -v "$ANDROID_HOME" ]; then
     export PATH=$PATH:$ANDROID_HOME/tools/bin
     export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
+
+# Load and configure zsh completion
+autoload -Uz compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+# automatically load bash completion functions
+autoload -U +X bashcompinit && bashcompinit
 
 # Safely load oh-my-posh
 if command -v oh-my-posh 1>/dev/null 2>&1; then
