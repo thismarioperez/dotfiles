@@ -5,7 +5,7 @@
 | Operating System | Supported? |
 | ---------------- | ---------- |
 | macOS            | ✅         |
-| Ubuntu/Debian    | ✅         |
+| Ubuntu           | ✅         |
 | Fedora           | ❌         |
 | Arch             | ❌         |
 | Windows          | ❌         |
@@ -25,7 +25,7 @@ Install with:
 brew update && brew install git zsh chezmoi
 ```
 
-Debian Linux (e.g. Ubuntu/WSL/Turnkey)
+Ubuntu Linux
 
 -   git
 -   zsh
@@ -36,8 +36,9 @@ Install with:
 ```shell
 sudo snap install chezmoi --classic && \
 sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
-# Then log out and back in to activate zsh
 ```
+
+**Make sure you log out/in to activate zsh**
 
 ## Usage
 
