@@ -1,11 +1,12 @@
 {{- if eq .chezmoi.os "linux" }}
 #!/bin/bash
 
-{{   if eq .chezmoi.osRelease.id "debian" }}
-# Debian-specific code
 # Install/Update nvm
 # install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" | sha256sum }}
 {{ includeTemplate "install-nvm.sh.tmpl" }}
+
+{{   if eq .chezmoi.osRelease.id "debian" }}
+# Debian-specific code
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 echo "Unsupported Linux distribution"
