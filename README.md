@@ -14,7 +14,7 @@
 
 macOS
 
--   (homebrew)[https://brew.sh/]
+-   [homebrew](https://brew.sh/)
 -   git
 -   zsh
 -   chezmoi
@@ -42,7 +42,7 @@ sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
 
 ## Usage
 
-Dotfiles are managed with (chezmoi)[https://www.chezmoi.io/].
+Dotfiles are managed with [chezmoi](https://www.chezmoi.io/).
 To get started on a new system, first, make sure you meet the system requirements. Then, run:
 
 ```
