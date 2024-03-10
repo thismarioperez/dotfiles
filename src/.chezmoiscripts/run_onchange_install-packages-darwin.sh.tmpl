@@ -1,15 +1,20 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
+# Install macOS Packages
+
+# Install/Update nvm
+# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
+{{ includeTemplate "install-nvm.sh.tmpl" . }}
+
 brew bundle --no-lock --file=/dev/stdin <<EOF
-{{-	  if eq .workspace "personal" }}
+{{   if eq .workspace "personal" -}}
 brew "libpng"
 brew "jpeg-xl"
 brew "aom"
 brew "bash-completion"
 brew "bat"
 brew "cabextract"
-brew "chezmoi"
 brew "freetype"
 brew "exa"
 brew "exercism"
@@ -86,9 +91,8 @@ cask "the-unarchiver"
 cask "via"
 cask "visual-studio-code"
 cask "vlc"
-EOF
-{{-   else if eq .workspace "work" }}
-# Work package list goes here
-
+{{   else if eq .workspace "work" -}}
 {{   end -}}
+EOF
+
 {{ end -}}

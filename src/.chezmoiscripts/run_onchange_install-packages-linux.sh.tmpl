@@ -1,11 +1,18 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-{{   if or .chezmoi.osRelease.id "debian" "ubuntu" }}
+# Install Linux Packages
+{{   if or .chezmoi.osRelease.id "debian" "ubuntu" -}}
 # Ubuntu/Debian-specific code
 
-# Install/Update chezmoi
-sh -c "$(curl -fsLS get.chezmoi.io)"
+
+# Install oh-my-posh
+echo "Installing oh-my-posh..."
+curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+
+# Install zoxide
+echo "Installing zoxide..."
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 sudo apt update && \
 sudo apt install -y \
@@ -18,32 +25,24 @@ sudo apt install -y \
 	unzip \
 	zsh
 
-# Install oh-my-posh for all distributions
-echo "Installing oh-my-posh..."
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
-
-# Install zoxide for all distributions
-echo "Installing zoxide"
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
-{{   else if eq .chezmoi.osRelease.id "fedora" }}
+{{   else if eq .chezmoi.osRelease.id "fedora" -}}
 echo "Unsupported Linux distribution"
 # Fedora-specific code
 exit 1
 
-{{   else if eq .chezmoi.osRelease.id "arch" }}
+{{   else if eq .chezmoi.osRelease.id "arch" -}}
 echo "Unsupported Linux distribution"
 # Arch-specific code
 exit 1
 
-{{   else }}
+{{   else -}}
 echo "Unsupported Linux distribution"
 exit 1
 
-{{   end }}
+{{   end -}}
 
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-	# WSL-specific code
-{{   end }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+# WSL-specific code
+{{   end -}}
 
 {{ end -}}

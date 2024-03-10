@@ -1,6 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-# Install/Update nvm
-# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
-{{ includeTemplate "install-nvm.sh.tmpl" . }}
-{{ end -}}
