@@ -1,25 +1,25 @@
 {{- if (or .chezmoi.os "linux" .chezmoi.os "darwin") }}
-[".config/zsh/plugins/fzf/fzf.plugin.sh"]
+[".local/share/zsh/plugins/fzf/fzf.plugin.sh"]
     type = "file"
     url = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/fzf/fzf.plugin.zsh"
     refreshPeriod = "168h"
-[".config/zsh/plugins/fzf-tab"]
+[".local/share/zsh/plugins/fzf-tab"]
 	type = "git-repo"
 	url = "https://github.com/Aloxaf/fzf-tab.git"
 	exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".config/zsh/plugins/git/git.plugin.sh"]
+[".local/share/zsh/plugins/git/git.plugin.sh"]
     type = "file"
     url = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/git.plugin.zsh"
     refreshPeriod = "168h"
-[".config/zsh/plugins/zsh-autosuggestions"]
+[".local/share/zsh/plugins/zsh-autosuggestions"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".config/zsh/plugins/zsh-syntax-highlighting"]
+[".local/share/zsh/plugins/zsh-syntax-highlighting"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
     exact = true
