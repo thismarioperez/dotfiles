@@ -4,7 +4,9 @@
 {{   if or .chezmoi.osRelease.id "debian" "ubuntu" }}
 # Ubuntu/Debian-specific code
 
-sudo snap install chezmoi --classic && \
+# Install/Update chezmoi
+sh -c "$(curl -fsLS get.chezmoi.io)"
+
 sudo apt update && \
 sudo apt install -y \
 	bat \
@@ -22,7 +24,7 @@ curl -s https://ohmyposh.dev/install.sh | sudo bash -s
 
 # Install zoxide for all distributions
 echo "Installing zoxide"
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sudo bash
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 echo "Unsupported Linux distribution"
