@@ -5,15 +5,6 @@
 {{   if or .chezmoi.osRelease.id "debian" "ubuntu" -}}
 # Ubuntu/Debian-specific code
 
-
-# Install oh-my-posh
-echo "Installing oh-my-posh..."
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
-
-# Install zoxide
-echo "Installing zoxide..."
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
 sudo apt update && \
 sudo apt install -y \
 	bat \
@@ -24,6 +15,18 @@ sudo apt install -y \
 	tmux \
 	unzip \
 	zsh
+
+# Install/Update nvm
+# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
+{{ includeTemplate "install-nvm.sh.tmpl" . }}
+
+# Install oh-my-posh
+echo "Installing oh-my-posh..."
+curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+
+# Install zoxide
+echo "Installing zoxide..."
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 {{   else if eq .chezmoi.osRelease.id "fedora" -}}
 echo "Unsupported Linux distribution"
