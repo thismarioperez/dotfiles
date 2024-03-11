@@ -50,10 +50,7 @@ Windows
 Install with:
 
 ```ps1
-winget install Git.Git --accept-package-agreements --accept-source-agreements;
-winget install Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements;
-winget install twpayne.chezmoi --accept-package-agreements --accept-source-agreements;
-winget install Microsoft.PowerShell --accept-package-agreements --accept-source-agreements;
+winget install Git.Git --accept-package-agreements --accept-source-agreements ; winget install Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements ; winget install twpayne.chezmoi --accept-package-agreements --accept-source-agreements ; winget install Microsoft.PowerShell --accept-package-agreements --accept-source-agreements ;
 ```
 
 ## Usage
