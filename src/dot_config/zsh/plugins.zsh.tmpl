@@ -12,8 +12,8 @@ fi
 
 if [ -v FZF_ENABLED ]; then # prevent plugins from loading when global fzf isn't available
     # fzf plugin
-    if [ -f "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.sh" ]; then
-        source "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.sh"
+    if [ -f "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.zsh" ]; then
+        source "$ZSH_PLUGINS_PATH/fzf/fzf.plugin.zsh"
     fi
 
     # fzf-tab
