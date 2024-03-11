@@ -16,8 +16,13 @@ README.md
 .local/share/zsh
 .local/share/zsh/
 .local/share/zsh/*
-.local/share/zsh/**/*
-.local/share/zsh/**/**/*
-.local/share/zsh/**/**/**/*
-.local/share/zsh/**/**/**/**/*
+.local/share/zsh/plugins
+.local/share/zsh/plugins/*
+.local/share/zsh/plugins/*/
+.local/share/zsh/plugins/**/*
+.local/share/zsh/plugins/**/**/
+.local/share/zsh/plugins/**/**/*
+.local/share/zsh/plugins/**/**/**/
+.local/share/zsh/plugins/**/**/**/*
+.local/share/zsh/plugins/**/**/**/**/
 {{ end -}}
