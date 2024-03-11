@@ -1,23 +1,23 @@
-{{- if or .chezmoi.os "darwin" "linux" }}
+{{ if or .chezmoi.os "darwin" "linux" -}}
 #   ---------------------------------------
 #   Unix-like aliases (Darwin & Linux)
 #   ---------------------------------------
 #   -----------------------------
 #   1.  MAKE TERMINAL BETTER
 #   -----------------------------
-alias edit='$EDITOR'                                # edit: Opens any file in code editor
-alias cp='cp -iv'                                   # Preferred 'cp' implementation
-alias mv='mv -iv'                                   # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                             # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                               # Preferred 'ls' implementation
-if [ -x "$(command -v exa)" ]; then                 # Prefer exa to ls
-    alias l="exa"
-    alias la="exa -a"
-    alias ls="exa -l -g --icons"
-    alias ll="ls -al"
+alias edit='$EDITOR'                # edit: Opens any file in code editor
+alias cp='cp -iv'                   # Preferred 'cp' implementation
+alias mv='mv -iv'                   # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'             # Preferred 'mkdir' implementation
+alias ll='ls -FGlAhp'               # Preferred 'ls' implementation
+if [ -x "$(command -v exa)" ]; then # Prefer exa to ls
+  alias l="exa"
+  alias la="exa -a"
+  alias ls="exa -l -g --icons"
+  alias ll="ls -al"
 fi
-if [ -x "$(command -v bat)" ]; then                 # Prefer bat to cat
-    alias cat="bat"
+if [ -x "$(command -v bat)" ]; then # Prefer bat to cat
+  alias cat="bat"
 fi
 alias -- -='cd -'
 alias ..='cd ../'
@@ -38,34 +38,33 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-alias edit_shell='edit ~/.zshrc'                    # Shortcut to edit zshrc
-alias reload='source ~/.zshrc'                      # Shortcut to reload zshrc
-alias ~="cd ~"                                      # ~:            Go Home
-alias c='clear'                                     # c:            Clear terminal display
-alias path='echo -e ${PATH//:/\\n}'                 # path:         Echo all executable Paths
-alias cic='set completion-ignore-case On'           # cic:          Make tab-completion case-insensitive
+alias reload='exec zsh'                   # Shortcut to reload zshrc
+alias ~="cd ~"                            # ~:            Go Home
+alias c='clear'                           # c:            Clear terminal display
+alias path='echo -e ${PATH//:/\\n}'       # path:         Echo all executable Paths
+alias cic='set completion-ignore-case On' # cic:          Make tab-completion case-insensitive
 
 #   -------------------------------
 #   2.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
-alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
-alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
-alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
-alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10mb size (all zeros)
+alias numFiles='echo $(ls -1 | wc -l)' # numFiles:     Count of non-hidden files in current dir
+alias make1mb='mkfile 1m ./1MB.dat'    # make1mb:      Creates a file of 1mb size (all zeros)
+alias make5mb='mkfile 5m ./5MB.dat'    # make5mb:      Creates a file of 5mb size (all zeros)
+alias make10mb='mkfile 10m ./10MB.dat' # make10mb:     Creates a file of 10mb size (all zeros)
 
 #   ---------------------------
 #   3.  NETWORKING
 #   ---------------------------
-alias myip='curl ifconfig.co'                       # myip:         Public facing IP Address
-alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
-alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
-alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
-alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
-alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
-alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
-alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
-alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+alias myip='curl ifconfig.co'                     # myip:         Public facing IP Address
+alias netCons='lsof -i'                           # netCons:      Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'          # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'           # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP' # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP' # lsockT:       Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'            # ipInfo0:      Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'            # ipInfo1:      Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'      # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                # showBlocked:  All ipfw rules inc/ blocked IPs
 
 #   ---------------------------------------
 #   4.  Productivity
@@ -87,7 +86,7 @@ tmux_ls() {
   done
 }
 
-alias tmls='tmux_ls'                               # tmls:  Tmux list sessions
+alias tmls='tmux_ls' # tmls:  Tmux list sessions
 
 # Tmux attach to session
 tmux_attach() {
@@ -103,7 +102,7 @@ tmux_attach() {
 
 }
 
-alias tma='tmux_attach'                            # tma:  Tmux attach to session
+alias tma='tmux_attach' # tma:  Tmux attach to session
 
 # Tmux new session
 tmux_new() {
@@ -127,7 +126,7 @@ tmux_new() {
   fi
 }
 
-alias tmn='tmux_new'                              # tmn:  Tmux new session
+alias tmn='tmux_new' # tmn:  Tmux new session
 
 # Tmux session killer
 tmux_kill() {
@@ -137,5 +136,5 @@ tmux_kill() {
   tmux kill-session -t "$session"
 }
 
-alias tmk='tmux_kill'                             # tmk:  Tmux session killer
-{{- end }}
+alias tmk='tmux_kill' # tmk:  Tmux session killer
+{{ end -}}

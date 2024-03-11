@@ -1,4 +1,4 @@
-{{- if (eq .chezmoi.os "darwin") }}
+{{ if (eq .chezmoi.os "darwin") -}}
 #   ---------------------------------------
 #   Darwin(MacOS) aliases
 #   ---------------------------------------
@@ -35,4 +35,4 @@ function sleepnow () {
 function off () {
   osascript -e "tell app "finder" to shutdown";
 }
-{{- end }}
+{{ end -}}
