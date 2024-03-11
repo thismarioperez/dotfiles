@@ -13,4 +13,7 @@ README.md
 .config/zsh
 .config/zsh/
 .config/zsh/*
+.local/share/zsh
+.local/share/zsh/
+.local/share/zsh/*
 {{ end -}}
