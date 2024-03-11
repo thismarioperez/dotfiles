@@ -8,7 +8,7 @@
 | Ubuntu           | ✅         |
 | Fedora           | ❌         |
 | Arch             | ❌         |
-| Windows          | ❌         |
+| Windows          | ✅         |
 
 ## System Requirements
 
