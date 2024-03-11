@@ -1,11 +1,10 @@
 README.md
-{{ if ne .chezmoi.os "darwin" }}
+{{ if ne .chezmoi.os "darwin" -}}
 .config/karabiner
 .config/karabiner/
 .config/karabiner/*
-{{ end }}
-{{ if or .chezmoi.os "darwin" "linux" }}
-{{ else }}
+{{ end -}}
+{{ if eq .chezmoi.os "windows" -}}
 .vimrc
 .zshenv
 .config/tmux
@@ -14,4 +13,4 @@ README.md
 .config/zsh
 .config/zsh/
 .config/zsh/*
-{{ end }}
+{{ end -}}
