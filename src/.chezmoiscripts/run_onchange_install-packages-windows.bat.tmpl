@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "windows" -}}
+@echo off
+
+Rem Install Windows Packages
+winget install JanDeDobbeleer.OhMyPosh ^
+    Git.Git ^
+    Microsoft.WindowsTerminal ^
+    --accept-package-agreements --accept-source-agreements
+{{ end -}}

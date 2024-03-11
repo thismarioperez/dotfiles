@@ -21,7 +21,7 @@ macOS
 
 Install with:
 
-```shell
+```sh
 brew update && brew install git zsh chezmoi
 ```
 
@@ -33,13 +33,29 @@ Ubuntu Linux
 
 Install with:
 
-```shell
+```sh
 echo "PATH=\"\$HOME/bin:\$PATH\"" >> ~/.zshrc && \
 sh -c "$(curl -fsLS get.chezmoi.io)" && \
 sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
 ```
 
 **Make sure you log out/in to activate zsh**
+
+Windows
+
+-   Git for Windows
+-   Microsoft Windows terminal
+-   chezmoi
+
+Install with:
+
+```sh
+winget install Git.Git ^
+    Microsoft.WindowsTerminal ^
+    twpayne.chezmoi ^
+    Microsoft.PowerShell ^
+    --accept-package-agreements --accept-source-agreements
+```
 
 ## Usage
 
