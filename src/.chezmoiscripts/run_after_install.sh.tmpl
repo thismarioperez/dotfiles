@@ -2,6 +2,26 @@
 {{ else if or .chezmoi.os "darwin" "linux" -}}
 #!/bin/bash
 
-echo "Run \"exec zsh\" to reload your shell"
-echo "If this is your first install, run \"source ~/.zshenv && exec zsh\""
+# Color vars
+GREEN="\033[32m"
+YELLOW="\033[34m"
+LIGHTGRAY="\033[37m"
+ENDCOLOR="\033[0m"
+
+echo -e "${ENDCOLOR}${YELLOW}
+--------------------------------------------------------------------------
+               ____  ____  __________________    ___________
+              / __ \/ __ \/_  __/ ____/  _/ /   / ____/ ___/
+             / / / / / / / / / / /_   / // /   / __/  \__ \ 
+            / /_/ / /_/ / / / / __/ _/ // /___/ /___ ___/ / 
+           /_____/\____/ /_/ /_/   /___/_____/_____//____/  
+                                                             
+--------------------------------------------------------------------------${ENDCOLOR}${LIGHTGRAY}
+
+ Run ${ENDCOLOR}${GREEN}exec zsh${ENDCOLOR}${LIGHTGRAY} to reload your shell
+ If this is your first install, run ${ENDCOLOR}${GREEN}source ~/.zshenv && exec zsh${ENDCOLOR}${YELLOW}
+
+--------------------------------------------------------------------------
+${ENDCOLOR}
+"
 {{ end -}}
