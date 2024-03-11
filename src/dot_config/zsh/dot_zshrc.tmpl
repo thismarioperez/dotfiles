@@ -14,22 +14,6 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
 
-# Safely load oh-my-posh
-if command -v oh-my-posh 1>/dev/null 2>&1; then
-    eval "$(oh-my-posh init zsh --config $XDG_DATA_HOME/oh-my-posh/themes/thismarioperez.omp.json)"
-fi
-
-# Safely load nvm and it's completions
-export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# fzf
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-export FZF_COMPLETION_TRIGGER='**'
-
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
