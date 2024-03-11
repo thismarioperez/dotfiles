@@ -25,4 +25,7 @@ README.md
 .local/share/zsh/plugins/**/**/**/
 .local/share/zsh/plugins/**/**/**/*
 .local/share/zsh/plugins/**/**/**/**/
+{{ else -}}
+*.ps1
+Documents/PowerShell/*.ps1
 {{ end -}}
