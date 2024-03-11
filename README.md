@@ -49,12 +49,14 @@ Windows
 
 Install with:
 
-```sh
-winget install Git.Git ^
-    Microsoft.WindowsTerminal ^
-    twpayne.chezmoi ^
-    Microsoft.PowerShell ^
+```ps1
+winget install @"
+    Git.Git
+    Microsoft.WindowsTerminal
+    twpayne.chezmoi
+    Microsoft.PowerShell
     --accept-package-agreements --accept-source-agreements
+"@
 ```
 
 ## Usage
