@@ -1,11 +1,9 @@
 {{ if eq .chezmoi.os "windows" -}}
-{{ else -}}
-{{     if or .chezmoi.os "darwin" "linux" -}}
+{{ else if or .chezmoi.os "darwin" "linux" -}}
 #!/bin/bash
 
 # dot_config/zsh/dot_zshrc.tmpl hash: {{ include "dot_config/zsh/dot_zshrc.tmpl" | sha256sum }}
 
 echo "Run \"exec zsh\" to reload your shell"
 echo "If this is your first install, run \"source ~/.zshenv && exec zsh\""
-{{     end -}}
 {{ end -}}

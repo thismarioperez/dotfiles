@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Install Linux Packages
-{{   if or .chezmoi.osRelease.id "debian" "ubuntu" -}}
+{{      if or .chezmoi.osRelease.id "debian" "ubuntu" -}}
 # Ubuntu/Debian-specific code
 
 sudo apt update && \
@@ -28,24 +28,24 @@ curl -s https://ohmyposh.dev/install.sh | sudo bash -s
 echo "Installing zoxide..."
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-{{   else if eq .chezmoi.osRelease.id "fedora" -}}
+{{      else if eq .chezmoi.osRelease.id "fedora" -}}
 echo "Unsupported Linux distribution"
 # Fedora-specific code
 exit 1
 
-{{   else if eq .chezmoi.osRelease.id "arch" -}}
+{{      else if eq .chezmoi.osRelease.id "arch" -}}
 echo "Unsupported Linux distribution"
 # Arch-specific code
 exit 1
 
-{{   else -}}
+{{      else -}}
 echo "Unsupported Linux distribution"
 exit 1
 
-{{   end -}}
+{{      end -}}
 
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{      if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 # WSL-specific code
-{{   end -}}
+{{      end -}}
 
 {{ end -}}
