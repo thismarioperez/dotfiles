@@ -52,6 +52,8 @@ ctrl + alt - j : yabai -m window --resize bottom:0:20 2> /dev/null || yabai -m w
 ctrl + alt - k : yabai -m window --resize bottom:0:-20 2> /dev/null || yabai -m window --resize top:0:-20 2> /dev/null
 ctrl + alt - l : yabai -m window --resize right:20:0 2> /dev/null || yabai -m window --resize left:20:0 2> /dev/null
 
+# TOOD: Needs OS to disable system integrity protection
+# Will still move window but not focus desktop
 # move window and focus desktop
 shift + ctrl - 1 : yabai -m window --space 1; yabai -m space --focus 1
 shift + ctrl - 2 : yabai -m window --space 2; yabai -m space --focus 2
@@ -64,12 +66,14 @@ shift + ctrl - 8 : yabai -m window --space 8; yabai -m space --focus 8
 shift + ctrl - 9 : yabai -m window --space 9; yabai -m space --focus 9
 shift + ctrl - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
+# TODO: Needs OS to disable system integrity protection
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + ctrl - n : yabai -m space --create && \
-                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                   yabai -m window --space "${index}" && \
-                   yabai -m space --focus "${index}"
+# shift + ctrl - n : yabai -m space --create && \
+#                    index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+#                    yabai -m window --space "${index}" && \
+#                    yabai -m space --focus "${index}"
 
+# TODO: Needs OS to disable system integrity protection
 # send window to monitor and follow focus
-shift + alt - n : yabai -m window --display next; yabai -m display --focus next
-shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
+# shift + alt - n : yabai -m window --display next; yabai -m display --focus next
+# shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
