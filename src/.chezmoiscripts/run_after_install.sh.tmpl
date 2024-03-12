@@ -2,6 +2,15 @@
 {{ else if or .chezmoi.os "darwin" "linux" -}}
 #!/bin/bash
 
+{{ if eq .chezmoi.os "darwin" -}}
+if command -v yabai 1>/dev/null 2>&1; then
+    yabai --start-service
+fi
+if command -v skhd 1>/dev/null 2>&1; then
+    skhd --start-service
+fi
+{{ end -}}
+
 # Color vars
 GREEN="\033[32m"
 YELLOW="\033[34m"
