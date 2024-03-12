@@ -15,7 +15,7 @@
 yabai -m config \
     external_bar off:40:0 \
     menubar_opacity 1.0 \
-    mouse_follows_focus on \
+    mouse_follows_focus off \
     focus_follows_mouse off \
     display_arrangement_order default \
     window_origin_display default \
@@ -55,6 +55,7 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Creative Cloud$" manage=off
 yabai -m rule --add app="^GitHub Desktop$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
