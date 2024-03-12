@@ -7,7 +7,11 @@ set softwrap # Enable softwrap of lines.
 set tabsize 4 # Sets tab-to-spaces size to 4.
 set tabstospaces # Converts TAB key press to spaces.
 {{ if eq .chezmoi.os "darwin" -}}
+{{     if eq .workspace "work" -}}
 include "/opt/homebrew/share/nano/*.nanorc" # Enables the syntax highlighting.
+{{     else -}}
+include "/usr/local/share/nano/*.nanorc" # Enables the syntax highlighting.
+{{     end -}}
 {{ else if eq .chezmoi.os "linux" -}}
 include "/usr/share/nano/*.nanorc" # Enables the syntax highlighting.
 {{ end -}}
