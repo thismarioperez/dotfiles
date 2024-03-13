@@ -2,6 +2,9 @@
 karabiner
 karabiner/
 karabiner/*
+amethyst
+amethyst/
+amethyst/*
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
