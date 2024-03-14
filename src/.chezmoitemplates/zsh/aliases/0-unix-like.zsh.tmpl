@@ -10,11 +10,11 @@ alias cp='cp -iv'                   # Preferred 'cp' implementation
 alias mv='mv -iv'                   # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'             # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'               # Preferred 'ls' implementation
-if [ -x "$(command -v exa)" ]; then # Prefer exa to ls
-  alias l="exa"
-  alias la="exa -a"
-  alias ls="exa -l -g --icons"
-  alias ll="ls -al"
+if [ -x "$(command -v eza)" ]; then # Prefer eza to ls
+  alias l="eza --icons --hyperlink"
+  alias la="l -a"
+  alias ls="l -l"
+  alias ll="l -la"
 fi
 if [ -x "$(command -v bat)" ]; then # Prefer bat to cat
   alias cat="bat"
