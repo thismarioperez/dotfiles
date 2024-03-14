@@ -27,6 +27,9 @@ fi
 {{- if eq .chezmoi.os "darwin" }}
 # add Homebrew to PATH
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# set 1Password ssh agent for macOS
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{- end }}
 
 # safely add android tools to PATH
