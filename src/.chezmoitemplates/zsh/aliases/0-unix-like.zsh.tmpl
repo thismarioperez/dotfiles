@@ -19,6 +19,9 @@ fi
 if [ -x "$(command -v bat)" ]; then # Prefer bat to cat
   alias cat="bat"
 fi
+if [ -x "$(command -v zoxide)" ]; then # Prefer zoxide to cd
+  alias cd="z"
+fi
 alias -- -='cd -'
 alias ..='cd ../'
 alias ...='../..'
