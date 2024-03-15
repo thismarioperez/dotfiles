@@ -20,8 +20,10 @@
 	email = "{{ .email }}"
 [core]
 	editor = code
-{{ if eq .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "windows" -}}
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ else if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+	sshCommand = ssh.exe
 {{- end }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
