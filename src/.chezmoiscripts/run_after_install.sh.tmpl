@@ -1,4 +1,4 @@
-{{ if or .chezmoi.os "darwin" "linux" -}}
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
 #!/bin/bash
 
 # Color vars

@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "darwin" -}}
 # Default settings for Amethyst
 # Repo: `https://github.com/ianyh/Amethyst`
 #
@@ -396,3 +397,5 @@ restore-layouts-on-launch: true
 
 # true to display some optional debug information in the layout HUD (default false).
 debug-layout-info: true
+
+{{ end -}}

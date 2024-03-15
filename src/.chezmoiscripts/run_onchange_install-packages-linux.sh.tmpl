@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Install Linux Packages
-{{      if or .chezmoi.osRelease.id "debian" "ubuntu" -}}
+{{      if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 # Ubuntu/Debian-specific code
 
 sudo apt update && \

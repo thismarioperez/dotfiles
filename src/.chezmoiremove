@@ -1,6 +1,7 @@
 # Remove these files from target directory since chezmoi manages them elsewhere
 
-{{ if or .chezmoi.os "darwin" "linux" }}
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
 .zshrc
+.zshprofile
 .tmux.conf
 {{ end }}
