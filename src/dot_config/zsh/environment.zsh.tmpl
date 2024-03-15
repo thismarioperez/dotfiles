@@ -30,13 +30,14 @@ fi
 
 # set 1Password ssh agent for macOS
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-{{- end -}}
-{{- if eq .chezmoi.os "linux" -}}
-    {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+    {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
         # WSL-specific code
-    {{- else -}}
-    {{- end -}}
-{{- end -}}
+    {{ else }}
+    {{ end }}
+{{ end -}}
 
 # safely add android tools to PATH
 if [ -v "$HOME/Library/Android/sdk" ]; then
