@@ -1,4 +1,5 @@
 README.md
+
 {{ if ne .chezmoi.os "darwin" -}}
 .config/amethyst
 .config/amethyst/
@@ -10,7 +11,14 @@ README.md
 .config/karabiner/
 .config/karabiner/*
 {{ end -}}
-{{ if eq .chezmoi.os "windows" -}}
+
+{{ if ne .chezmoi.os "windows" -}}
+*.ps1
+Documents/PowerShell
+Documents/PowerShell/
+Documents/PowerShell/*
+{{ else }}
+*.scpt
 .vimrc
 .zshenv
 .config/tmux
@@ -19,6 +27,9 @@ README.md
 .config/zsh
 .config/zsh/
 .config/zsh/*
+.local/share/osx-scripts
+.local/share/osx-scripts/
+.local/share/osx-scripts/*
 .local/share/zsh
 .local/share/zsh/
 .local/share/zsh/*
@@ -31,9 +42,4 @@ README.md
 .local/share/zsh/plugins/**/**/**/
 .local/share/zsh/plugins/**/**/**/*
 .local/share/zsh/plugins/**/**/**/**/
-{{ else -}}
-*.ps1
-Documents/PowerShell
-Documents/PowerShell/
-Documents/PowerShell/*
 {{ end -}}
