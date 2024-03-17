@@ -4,11 +4,12 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# create cache directories if they don't exist
+# create cache directory if it doesn't exist
 if [ ! -d $XDG_CACHE_HOME ]; then
     mkdir -p $XDG_CACHE_HOME
 fi
 
+# create zsh cache directory
 if [ ! -d $XDG_CACHE_HOME/zsh ]; then
     mkdir -p $XDG_CACHE_HOME/zsh
 fi
@@ -25,7 +26,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 {{- if eq .chezmoi.os "darwin" }}
-# add Homebrew to PATH
+# safely add Homebrew to PATH on apple silicon macs
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # set 1Password ssh agent for macOS
