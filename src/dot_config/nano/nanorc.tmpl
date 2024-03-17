@@ -14,6 +14,7 @@ include "/opt/homebrew/share/nano/*.nanorc" # Enables the syntax highlighting.
 {{      end }}
 {{ else if eq .chezmoi.os "linux" -}}
 include "/usr/share/nano/*.nanorc" # Enables the syntax highlighting.
+{{ else if eq .chezmoi.os "windows" -}}
 {{ end -}}
 set speller "aspell -x -c" # Sets what spelling utility to use.
 set constantshow           # Displays useful information e.g. line number and position in the bottom bar.
