@@ -1,0 +1,87 @@
+[env]
+term = "xterm-256color"
+
+[window]
+dynamic_title = true
+opacity = 0.95
+blur = true
+decorations_theme_variant = "None"
+decorations = "None"
+option_as_alt = "OnlyLeft"
+dynamic_padding = true
+
+[window.padding]
+x = 2
+y = 2
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "MonoLisa Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MonoLisa Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "MonoLisa Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "MonoLisa Nerd Font"
+style = "Regular"
+
+[colors.primary]
+foreground = "#d6deeb"
+background = "#011627"
+
+[colors.selection]
+text = "#bec5d4"
+background = "#7e57c2"
+
+[colors.cursor]
+text = "#bec5d4"
+cursor = "#7e57c2"
+
+[colors.normal]
+black = "#011627"
+red = "#EF5350"
+green = "#addb67"
+yellow = "#feffff"
+blue = "#82AAFF"
+magenta = "#7e57c2"
+cyan = "#21c7a8"
+white = "#bec5d4"
+
+[colors.bright]
+black = "#575656"
+red = "#EF5350"
+green = "#22da6e"
+yellow = "#ffeb95"
+blue = "#5ca7e4"
+magenta = "#C792EA"
+cyan = "#7fdbca"
+white = "#bec5d4"
+
+[colors.dim]
+black = "#011627"
+red = "#EF5350"
+green = "#addb67"
+yellow = "#feffff"
+blue = "#82AAFF"
+magenta = "#7e57c2"
+cyan = "#21c7a8"
+white = "#bec5d4"
