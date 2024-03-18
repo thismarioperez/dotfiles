@@ -8,12 +8,23 @@
 sudo apt update && \
 sudo apt install -y \
 	bat \
+	build-essential \
 	fzf \
 	git \
 	nano \
 	tmux \
 	unzip \
 	zsh
+
+# Install rust and cargo
+echo "Installing rust and cargo"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
+export PATH=$PATH:$HOME/.cargo/bin # this adds cargo path to current shell
+source "$HOME/.cargo/env" # this loads cargo for the current shell
+
+# Install/Update eza
+cargo install eza
 
 # Install/Update nvm
 # install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
