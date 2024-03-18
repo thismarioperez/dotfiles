@@ -12,21 +12,25 @@ main() {
 
     # Night Owl Color Pallette
     black='#011627'
-    bright_black='#44596b'
-    red='#f78c6c'
-    bright_red='#ef5350'
+    bright_black='#575656'
+    red='#EF5350'
+    bright_red='#EF5350'
+    orange='#f78c6c'
+    bright_orange='#ef5350'
     green='#addb67'
     bright_green='#22da6e'
-    yellow='#ffcb8b'
+    yellow='#c5e478'
     bright_yellow='#ffeb95'
     blue='#82aaff'
     bright_blue='#5ca7e4'
-    magenta='#c792ea'
-    bright_magenta='#7e57c2'
-    cyan='#7fdbca'
-    bright_cyan='#21c7a8'
+    magenta='#7e57c2'
+    bright_magenta='#C792EA'
+    cyan='#21c7a8'
+    bright_cyan='#7fdbca'
     white='#bec5d4'
     bright_white='#ffffff'
+    gray='#44596b'
+    error='#ce092f'
 
     status_bar_bg=$black
     status_bar_fg=$black
@@ -58,7 +62,7 @@ main() {
     tmux set-option -g status-justify left
 
     # Status bar left
-    tmux set-option -g status-left "#[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_circle}#[bg=${bright_magenta},fg=${black}] #{session_name} #[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_diamond}"
+    tmux set-option -g status-left "#[fg=${magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_circle}#[bg=${magenta},fg=${black}] #{session_name} #[fg=${magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_diamond}"
 
     # Status right
     # reset
