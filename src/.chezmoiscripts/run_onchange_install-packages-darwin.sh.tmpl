@@ -9,9 +9,8 @@
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{      if eq .workspace "personal" -}}
-brew "libpng"
-brew "jpeg-xl"
 brew "aom"
+brew "bash"
 brew "bash-completion"
 brew "bat"
 tap "FelixKratz/formulae"
@@ -30,7 +29,9 @@ brew "imagemagick"
 tap "jandedobbeleer/oh-my-posh"
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 brew "jpeg"
+brew "jpeg-xl"
 brew "jq"
+brew "libpng"
 brew "nano"
 brew "neofetch"
 brew "nmap"
@@ -97,6 +98,7 @@ cask "visual-studio-code"
 cask "vlc"
 {{      else if eq .workspace "work" -}}
 brew "libpng"
+brew "bash"
 brew "bash-completion"
 brew "bat"
 brew "bitwarden-cli"
