@@ -5,10 +5,10 @@ main() {
     current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
     # seperators
-    left_sep=''
-    left_sep_trail=''
-    right_sep=''
-    right_sep_trail=''
+    left_circle=''
+    left_diamond=''
+    right_circle=''
+    right_diamond=''
 
     # Night Owl Color Pallette
     black='#011627'
@@ -58,22 +58,22 @@ main() {
     tmux set-option -g status-justify left
 
     # Status bar left
-    tmux set-option -g status-left "#[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_sep}#[bg=${bright_magenta},fg=${black}] #{session_name} #[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_sep_trail}"
+    tmux set-option -g status-left "#[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_circle}#[bg=${bright_magenta},fg=${black}] #{session_name} #[fg=${bright_magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_diamond}"
 
     # Status right
     # reset
     tmux set-option -g status-right ""
     # ram info
-    tmux set-option -ga status-right "#[fg=${bright_yellow},bg=${status_bar_bg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${black},bg=${bright_yellow}] #($current_dir/ram_info.sh) #[fg=${status_bar_bg},bg=${bright_yellow},nobold,nounderscore,noitalics]${right_sep_trail}"
+    tmux set-option -ga status-right "#[fg=${bright_yellow},bg=${status_bar_bg},nobold,nounderscore,noitalics] ${right_circle}#[fg=${black},bg=${bright_yellow}] #($current_dir/ram_info.sh) #[fg=${status_bar_bg},bg=${bright_yellow},nobold,nounderscore,noitalics]${right_diamond}"
     # cpu info
-    tmux set-option -ga status-right "#[fg=${red},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_sep_trail}#[fg=${black},bg=${red}] #($current_dir/cpu_info.sh) #[fg=${red},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_sep}"
+    tmux set-option -ga status-right "#[fg=${red},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_diamond}#[fg=${black},bg=${red}] #($current_dir/cpu_info.sh) #[fg=${red},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_circle}"
 
     # Window list
     # tmux set-option -g window-status-current-format "#[bg=${green},fg${black}] #{window_index}:#{window_name}#{window_flags} "
     # tmux set-option -g window-status-format "#(echo" ")#{window_index}:#{window_name}#{window_flags} "
     tmux set-window-option -g window-status-separator ""
-    tmux set-window-option -g window-status-current-format "#[fg=${status_bar_bg},bg=${green}]${left_sep_trail}#[fg=${black},bg=${green}] #I #W#{window_flags}#[fg=${green},bg=${status_bar_bg}]#{?window_end_flag,${left_sep},${left_sep_trail}}"
-    tmux set-window-option -g window-status-format "#[fg=${status_bar_bg},bg=${bright_black}]${left_sep_trail}#[fg=${white}]#[bg=${bright_black}] #I #W#{window_flags}#[fg=${bright_black},bg=${status_bar_bg}]#{?window_end_flag,${left_sep},${left_sep_trail}}"
+    tmux set-window-option -g window-status-current-format "#[fg=${status_bar_bg},bg=${green}]${left_diamond}#[fg=${black},bg=${green}] #I #W#{window_flags}#[fg=${green},bg=${status_bar_bg}]#{?window_end_flag,${left_circle},${left_diamond}}"
+    tmux set-window-option -g window-status-format "#[fg=${status_bar_bg},bg=${bright_black}]${left_diamond}#[fg=${white}]#[bg=${bright_black}] #I #W#{window_flags}#[fg=${bright_black},bg=${status_bar_bg}]#{?window_end_flag,${left_circle},${left_diamond}}"
 }
 
 # run main function
