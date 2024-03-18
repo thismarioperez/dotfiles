@@ -62,6 +62,7 @@ main() {
     tmux set-option -g status-justify left
 
     # Status bar left
+    tmux set-option -g status-left-length 100 # increase maximum length of status bar left
     tmux set-option -g status-left "#[fg=${magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${right_circle}#[bg=${magenta},fg=${black}] #{session_name} #[fg=${magenta},bg=${status_bar_bg},nobold,nounderscore,noitalics]${left_diamond}"
 
     # Status right
