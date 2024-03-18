@@ -1,4 +1,9 @@
 {{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+[".config/tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm.git"
+    exact = true
+    refreshPeriod = "168h"
 [".local/share/zsh/plugins/fzf/fzf.plugin.zsh"]
     type = "file"
     url = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/fzf/fzf.plugin.zsh"
@@ -7,7 +12,6 @@
 	type = "git-repo"
 	url = "https://github.com/Aloxaf/fzf-tab.git"
 	exact = true
-    stripComponents = 1
     refreshPeriod = "168h"
 [".local/share/zsh/plugins/git/git.plugin.zsh"]
     type = "file"

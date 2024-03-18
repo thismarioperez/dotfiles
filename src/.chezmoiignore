@@ -24,6 +24,16 @@ Documents/PowerShell/*
 .config/tmux
 .config/tmux/
 .config/tmux/*
+.config/tmux/plugins
+.config/tmux/plugins/
+.config/tmux/plugins/*
+.config/tmux/plugins/**/
+.config/tmux/plugins/**/*
+.config/tmux/plugins/**/**/
+.config/tmux/plugins/**/**/*
+.config/tmux/plugins/**/**/**/
+.config/tmux/plugins/**/**/**/*
+.config/tmux/plugins/**/**/**/**/
 .config/zsh
 .config/zsh/
 .config/zsh/*
@@ -35,7 +45,7 @@ Documents/PowerShell/*
 .local/share/zsh/*
 .local/share/zsh/plugins
 .local/share/zsh/plugins/*
-.local/share/zsh/plugins/*/
+.local/share/zsh/plugins/**/
 .local/share/zsh/plugins/**/*
 .local/share/zsh/plugins/**/**/
 .local/share/zsh/plugins/**/**/*
