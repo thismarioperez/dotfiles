@@ -27,6 +27,7 @@ brew update && brew install git zsh chezmoi
 
 Ubuntu Linux
 
+-   [apt](https://wiki.debian.org/Apt)
 -   git
 -   zsh
 -   chezmoi
@@ -43,6 +44,7 @@ sudo apt update && sudo apt install git zsh && chsh -s $(which zsh)
 
 Windows
 
+-   [Winget](https://github.com/microsoft/winget-cli)
 -   Git for Windows
 -   Microsoft Windows terminal
 -   chezmoi

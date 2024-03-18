@@ -34,6 +34,10 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 {{ end -}}
 
 {{- if eq .chezmoi.os "linux" }}
+
+# add Rust bin to path
+export PATH=$PATH:$HOME/.cargo/bin
+
     {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
         # WSL-specific code
     {{ else }}

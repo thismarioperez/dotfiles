@@ -1,7 +1,17 @@
-# Setup environment
+
+################################################################################
+# Environment
+################################################################################
+# Setup xdg paths
 $env:XDG_CONFIG_HOME = "$HOME\.config"
 $env:XDG_DATA_HOME = "$HOME\.local\share"
 
+# Setup path
+$env:Path += 'C:\Program Files\Git\usr\bin;' # Add git bin to path. Allows us to use nano
+
+################################################################################
+# Plugins
+################################################################################
 # Load oh-my-posh
 oh-my-posh init pwsh --config "$env:XDG_DATA_HOME\oh-my-posh\themes\thismarioperez.omp.json" | Invoke-Expression
 
@@ -14,6 +24,9 @@ if (Get-Module -ListAvailable -Name Terminal-Icons) {
     Import-Module -Name Terminal-Icons
 }
 
+################################################################################
+# Aliases
+################################################################################
 # Make it easy to edit this profile once it's installed
 # We're only targeting the current user, all hosts profile
 function Edit-Profile {
