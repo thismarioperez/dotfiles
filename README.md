@@ -63,3 +63,18 @@ To get started on a new system, first, make sure you meet the system requirement
 ```
 chezmoi init --apply --verbose https://github.com/thismarioperez/dotfiles.git
 ```
+
+### Themes
+
+All custom themes are based on the [Night Owl](https://github.com/sdras/night-owl-vscode-theme) color palette.
+
+|         | Normal                                              | Bright                                     |
+| ------- | --------------------------------------------------- | ------------------------------------------ |
+| Black   | `#011627`<br>`editor.background`                    | `#44596b`<br>`activityBarBadge.background` |
+| Red     | `#f78c6c`<br>`Number`                               | `#ef5350`<br>`errorForeground`             |
+| Green   | `#addb67`<br>`String`                               | `#22da6e`<br>`terminal.ansiBrightGreen`    |
+| Yellow  | `#ffcb8b`<br>`Class name`                           | `#ffeb95`<br>`Constant Other Color`        |
+| Blue    | `#82aaff`<br>`Built-in constant`<br>`Function name` | `#5ca7e4`<br>`RegExp String`               |
+| Magenta | `#c792ea`<br>`Keyword`                              | `#7e57c2`<br>`button.hoverBackground`      |
+| Cyan    | `#7fdbca`<br>`Meta tag`                             | `#21c7a8`<br>`terminal.ansiCyan`           |
+| White   | `#bec5d4`<br>`PHP Variables`                        | `#ffffff`<br>`Object Comma`                |
