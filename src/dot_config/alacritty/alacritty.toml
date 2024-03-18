@@ -4,7 +4,7 @@ term = "xterm-256color"
 [window]
 dynamic_title = true
 opacity = 0.95
-blur = true
+blur = false
 decorations_theme_variant = "None"
 decorations = "None"
 option_as_alt = "OnlyLeft"
