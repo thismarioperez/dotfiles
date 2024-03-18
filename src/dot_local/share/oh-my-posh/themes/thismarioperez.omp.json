@@ -63,7 +63,7 @@
                 },
                 {
                     "background": "#575656",
-                    "foreground": "#d6deeb",
+                    "foreground": "#bec5d4",
                     "leading_diamond": "<transparent,#575656>\ue0b0</>",
                     "properties": {
                         "style": "roundrock",
@@ -82,12 +82,12 @@
             "overflow": "break",
             "segments": [
                 {
-                    "background": "#d6deeb",
+                    "background": "#bec5d4",
                     "foreground": "#011627",
                     "leading_diamond": "\ue0b6",
                     "style": "diamond",
                     "template": "\uf489  {{ .Name }} ",
-                    "trailing_diamond": "<transparent,#d6deeb>\ue0b2</>",
+                    "trailing_diamond": "<transparent,#bec5d4>\ue0b2</>",
                     "type": "shell"
                 },
                 {
@@ -349,7 +349,7 @@
                 },
                 {
                     "background": "#234d70",
-                    "foreground": "#d6deeb",
+                    "foreground": "#bec5d4",
                     "leading_diamond": "\ue0b2",
                     "properties": {
                         "time_format": "15:04:05"
@@ -386,7 +386,7 @@
     "final_space": true,
     "transient_prompt": {
         "background": "transparent",
-        "foreground": "#906cff",
+        "foreground": "#bec5d4",
         "template": " \u276f "
     },
     "version": 2
