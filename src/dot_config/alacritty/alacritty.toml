@@ -11,7 +11,7 @@ option_as_alt = "OnlyLeft"
 dynamic_padding = true
 
 [window.padding]
-x = 2
+x = 5
 y = 2
 
 [scrolling]
