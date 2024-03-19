@@ -1,10 +1,13 @@
 {{ if eq .chezmoi.os "windows" -}}
-Rem Install Terminal Icons
-# Wrap command in a PowerShell script to prevent PowerShell from hanging.
-# Runs as Administrator to install the module.
+@REM Install Terminal Icons
+
+@REM Runs as Administrator to install the module.
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""Install-Module -Name Terminal-Icons -Repository PSGallery -Force""' -Verb RunAs}"
 
-Rem Install Windows Packages
+@REM Install a module without admin
+@REM PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""Install-Module PSReadLine""'}"
+
+@REM Install Windows Packages
 winget install -e --id JanDeDobbeleer.OhMyPosh --accept-package-agreements --accept-source-agreements
 winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements
