@@ -72,12 +72,11 @@ All custom themes are based on the [Night Owl](https://github.com/sdras/night-ow
 | ------- | --------- | --------- |
 | Black   | `#011627` | `#575656` |
 | White   | `#bec5d4` | `#ffffff` |
-| Red     | `#EF5350` | `#EF5350` |
-| Orange  | `#f78c6c` | `#ef5350` |
+| Red     | `#ef5350` | `#f78c6c` |
 | Green   | `#addb67` | `#22da6e` |
 | Yellow  | `#c5e478` | `#ffeb95` |
-| Blue    | `#82AAFF` | `#5ca7e4` |
-| Magenta | `#7e57c2` | `#C792EA` |
+| Blue    | `#82aaff` | `#5ca7e4` |
+| Magenta | `#7e57c2` | `#c792ea` |
 | Cyan    | `#21c7a8` | `#7fdbca` |
 | Gray    | `#44596b` |           |
 | Error   | `#ce092f` |           |
