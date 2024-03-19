@@ -26,7 +26,7 @@ shape = "Block"
 blinking = "On"
 
 [font]
-size = 14.0
+size = 12.0
 
 [font.bold]
 family = "MonoLisa Nerd Font"
