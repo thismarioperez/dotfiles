@@ -371,13 +371,13 @@ enables-layout-hud-on-space-change: true
 use-canary-build: false
 
 # true to insert new windows into the first position and false to insert new windows into the last position (default false).
-new-windows-to-main: false
+new-windows-to-main: true
 
 # true to automatically move to a space when throwing a window to it (default true).
 follow-space-thrown-windows: true
 
 # The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
-window-resize-step: 1
+window-resize-step: 5
 
 # Padding to apply between windows and the left edge of the screen (in px, default 0).
 screen-padding-left: 0
