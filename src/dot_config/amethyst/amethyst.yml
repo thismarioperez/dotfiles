@@ -323,10 +323,12 @@ window-minimum-height: 0
 window-minimum-width: 0
 
 # List of bundle identifiers for applications to either be automatically floating or automatically tiled based on floating-is-blacklist (default []).
-floating: [
+floating:
+    [
         com.1password.1password,
         com.apple.AppStore,
         com.apple.calculator,
+        com.apple.iphonesimulator,
         com.apple.systempreferences,
         com.bitwarden.desktop,
         net.freemacsoft.AppCleaner,
@@ -337,7 +339,7 @@ floating: [
         com.privateinternetaccess,
         com.runningwithcrayons.Alfred,
         com.runningwithcrayons.Alfred-Preferences,
-        com.surteesstudios.Bartender
+        com.surteesstudios.Bartender,
     ]
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).
