@@ -215,3 +215,7 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
+[workspace-to-monitor-force-assignment]
+9 = 1 # workspace 9 goes to monitor 1
+10 = 3 # workspace 10 goes to monitor 3
