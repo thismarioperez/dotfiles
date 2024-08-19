@@ -223,6 +223,29 @@ l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
 
+# Monitor workspace assignments
 [workspace-to-monitor-force-assignment]
 9 = 1 # workspace 9 goes to monitor 1
 10 = 3 # workspace 10 goes to monitor 3
+
+# Window detection callbacks
+# Auto-float iOS Simulator
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = 'layout floating'
+
+# Auto-float Bitwarden
+[[on-window-detected]]
+if.app-id = 'com.bitwarden.desktop'
+run = 'layout floating'
+
+# Auto-float 1Password
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+# Auto-float Alfred preferences
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred-Preferences'
+run = 'layout floating'
+
