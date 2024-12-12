@@ -1,5 +1,12 @@
 source "$ZDOTDIR/environment.zsh"
 
+# add extra config if it exists.
+# use this for customizing zsh environment without modifying chezmoi dotfiles
+if [ -f "$ZDOTDIR/extra.zsh" ]; then
+    echo "Extra config loaded from -> $ZDOTDIR/extra.zsh"
+    source "$ZDOTDIR/extra.zsh"
+fi
+
 # autoload global functions
 autoload is-at-least
 
