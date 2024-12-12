@@ -112,13 +112,9 @@
                             {
                                 "from": {
                                     "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": ["command", "control"]
-                                    }
+                                    "modifiers": { "mandatory": ["command", "control"] }
                                 },
-                                "to": [
-                                    { "shell_command": "open -a Alacritty" }
-                                ],
+                                "to": [{ "shell_command": "open -a WezTerm" }],
                                 "type": "basic"
                             }
                         ]
