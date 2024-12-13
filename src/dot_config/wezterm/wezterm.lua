@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- Apply config
 
 -- Font
-config.font = wezterm.font("MonoLisa Nerd Font", { weight = "Regular" })
+config.font = wezterm.font("MonoLisa Nerd Font", { weight = "Bold" })
 config.font_size = 16.0
 config.cell_width = 0.9
 
