@@ -91,7 +91,7 @@
         {
             "type": "prompt",
             "alignment": "right",
-            "overflow": "break",
+            "overflow": "hide",
             "segments": [
                 {
                     "properties": {
