@@ -35,6 +35,10 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 
 {{- if eq .chezmoi.os "linux" }}
 
+# skip global compinit for zsh-autocomplete to init correctly
+# @see:https://github.com/marlonrichert/zsh-autocomplete?tab=readme-ov-file#installation--setup
+skip_global_compinit=1
+
 # add Rust bin to path
 export PATH=$PATH:$HOME/.cargo/bin
 

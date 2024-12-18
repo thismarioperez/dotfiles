@@ -1,6 +1,19 @@
 # Plugins
 export ZSH_PLUGINS_PATH="$XDG_DATA_HOME/zsh/plugins"
 
+# zsh-autocomplete - MUST LOAD FIRST
+if [ -f "$ZSH_PLUGINS_PATH/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ]; then
+    source "$ZSH_PLUGINS_PATH/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+fi
+
+# zsh-autosuggestions
+if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    # configuration
+    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 # fzf
 if command -v fzf 1>/dev/null 2>&1; then # Check if global fzf is installed
     # fzf binary configuration
@@ -56,14 +69,6 @@ fi
 # zoxide
 if command -v zoxide 1>/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
-fi
-
-# zsh-autosuggestions
-if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    # configuration
-    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
 # zsh-syntax-highlighting - ALWAYS LOAD LAST
