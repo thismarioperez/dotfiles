@@ -10,13 +10,26 @@ fi
 # autoload global functions
 autoload is-at-least
 
-# ZSH configuration
+# Default Editor
+EDITOR="code"
+
+# History configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
+HISTDUP=erase
 ENABLE_CORRECTION="true"
-EDITOR="code"
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+
+# Keybindings
 bindkey -e # use emacs key bindings (default)
+bindkey -e "^p" history-search-backward
+bindkey -e "^n" history-search-forward
 
 # Load and configure built-in zsh completion
 autoload -Uz compinit
