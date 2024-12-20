@@ -1,21 +1,45 @@
 source "$ZDOTDIR/environment.zsh"
 
-# ZSH configuration
+# add extra config if it exists.
+# use this for customizing zsh environment without modifying chezmoi dotfiles
+if [ -f "$ZDOTDIR/extra.zsh" ]; then
+    echo "Extra config loaded from -> $ZDOTDIR/extra.zsh"
+    source "$ZDOTDIR/extra.zsh"
+fi
+
+# autoload global functions
+autoload is-at-least
+
+# Default Editor
+EDITOR="code"
+
+# History configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
+HISTDUP=erase
 ENABLE_CORRECTION="true"
-EDITOR="code"
-bindkey -e # use emacs key bindings (default)
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
 
-# Load and configure zsh completion
+# Keybindings
+bindkey -e # use emacs key bindings (default)
+bindkey -e "^p" history-search-backward
+bindkey -e "^n" history-search-forward
+
+# Load and configure built-in zsh completion
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
 
+# Load plugins
+source "$ZDOTDIR/plugins.zsh"
+
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
-# Load plugins
-source "$ZDOTDIR/plugins.zsh"

@@ -6,7 +6,7 @@ dynamic_title = true
 opacity = 0.95
 blur = false
 decorations_theme_variant = "None"
-decorations = "None"
+decorations = "Buttonless"
 option_as_alt = "OnlyLeft"
 dynamic_padding = true
 
@@ -26,7 +26,7 @@ shape = "Block"
 blinking = "On"
 
 [font]
-size = 12.0
+size = 16.0
 
 [font.bold]
 family = "MonoLisa Nerd Font"

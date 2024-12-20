@@ -1,6 +1,9 @@
 README.md
 
 {{ if ne .chezmoi.os "darwin" -}}
+.config/aerospace
+.config/aerospace/
+.config/aerospace/*
 .config/alacritty
 .config/alacritty/
 .config/alacritty/*
@@ -13,6 +16,9 @@ README.md
 .config/karabiner
 .config/karabiner/
 .config/karabiner/*
+.config/rectangle-pro
+.config/rectangle-pro/
+.config/rectangle-pro/*
 {{ end -}}
 
 {{ if ne .chezmoi.os "windows" -}}
