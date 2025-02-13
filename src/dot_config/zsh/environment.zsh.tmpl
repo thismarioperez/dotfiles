@@ -52,6 +52,15 @@ if [ -d "$HOME/Library/Android/sdk" ]; then
     export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
+# safely add pnpm to PATH
+PNPM_HOME="${HOME}/.local/share/pnpm"
+if [ -d "$PNPM_HOME" ]; then
+    case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
+fi
+
 # set PATH for local node_modules - Keep this last in case node modules don't exist
 PATH="$PATH:node_modules/.bin"
 PATH="$PATH:.node_modules/.bin"
