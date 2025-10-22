@@ -7,7 +7,7 @@
 # install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
 {{ includeTemplate "install-nvm.sh.tmpl" . }}
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{      if eq .workspace "personal" -}}
 tap "FelixKratz/formulae"
 tap "jandedobbeleer/oh-my-posh"
