@@ -28,9 +28,7 @@ function module.apply_to_config(config)
     config.window_background_opacity = 0.9
     config.macos_window_background_blur = 16
     config.enable_scroll_bar = true -- this allows for more customization
-
     config.hide_tab_bar_if_only_one_tab = false
-    config.use_fancy_tab_bar = false
 
     wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
         local has_unseen_output = false
