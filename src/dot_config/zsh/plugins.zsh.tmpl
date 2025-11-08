@@ -34,6 +34,14 @@ if command -v fzf 1>/dev/null 2>&1; then # Check if global fzf is installed
     fi
 fi
 
+{{ if eq .chezmoi.os "darwin" -}}
+# atuin
+# Load here to override fzf history search
+if command -v atuin 1>/dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+{{ end -}}
+
 # git
 if [ -f "$ZSH_PLUGINS_PATH/git/git.plugin.zsh" ]; then
     source "$ZSH_PLUGINS_PATH/git/git.plugin.zsh"

@@ -11,7 +11,7 @@ fi
 autoload is-at-least
 
 # Default Editor
-EDITOR="code"
+EDITOR="{{ if eq .chezmoi.os "darwin" -}}cursor{{ else -}}vim{{ end }}"
 
 # History configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/histfile
