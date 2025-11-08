@@ -16,6 +16,11 @@ sudo apt install -y \
 	unzip \
 	zsh
 
+# Symlink batcat to bat
+echo "Symlinking batcat to bat"
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # Install rust and cargo
 echo "Installing rust and cargo"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
