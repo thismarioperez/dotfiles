@@ -10,6 +10,9 @@ README.md
 .config/amethyst
 .config/amethyst/
 .config/amethyst/*
+.config/atuin
+.config/atuin/
+.config/atuin/*
 .config/borders
 .config/borders/
 .config/borders/*

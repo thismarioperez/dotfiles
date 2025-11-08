@@ -9,12 +9,36 @@ sudo apt update && \
 sudo apt install -y \
 	bat \
 	build-essential \
-	fzf \
 	git \
 	nano \
 	tmux \
 	unzip \
 	zsh
+
+# Symlink batcat to bat
+echo "Symlinking batcat to bat"
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# Install fzf binary
+if [ -d ~/.fzf ]; then
+	# Update existing fzf installation
+	cd ~/.fzf && git pull && cd - > /dev/null
+else
+	# Clone fzf if it doesn't exist
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+fi
+~/.fzf/install --bin
+
+# Symlink fzf binaries to ~/.local/bin
+echo "Symlinking fzf binaries to ~/.local/bin"
+mkdir -p ~/.local/bin
+if [ -f ~/.fzf/bin/fzf ]; then
+	ln -sf ~/.fzf/bin/fzf ~/.local/bin/fzf
+fi
+if [ -f ~/.fzf/bin/fzf-tmux ]; then
+	ln -sf ~/.fzf/bin/fzf-tmux ~/.local/bin/fzf-tmux
+fi
 
 # Install rust and cargo
 echo "Installing rust and cargo"
@@ -32,7 +56,7 @@ cargo install eza
 
 # Install oh-my-posh
 echo "Installing oh-my-posh..."
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+curl -s https://ohmyposh.dev/install.sh | bash
 
 # Install zoxide
 echo "Installing zoxide..."
