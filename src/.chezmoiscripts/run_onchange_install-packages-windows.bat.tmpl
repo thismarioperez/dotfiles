@@ -8,11 +8,12 @@ PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerSh
 @REM PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""Install-Module PSReadLine""'}"
 
 @REM Install Windows Packages
-winget install -e --id JanDeDobbeleer.OhMyPosh --accept-package-agreements --accept-source-agreements
+winget install -e --id Anysphere.Cursor --accept-package-agreements --accept-source-agreements
 winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements
+winget install -e --id JanDeDobbeleer.OhMyPosh --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.VisualStudioCode --accept-package-agreements --accept-source-agreements
+winget install -e --id jdx.mise --accept-package-agreements --accept-source-agreements
 winget install -e --id wez.wezterm --accept-package-agreements --accept-source-agreements
-winget install -e --id Anysphere.Cursor --accept-package-agreements --accept-source-agreements
 exit 0
 {{ end -}}

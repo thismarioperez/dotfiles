@@ -6,7 +6,6 @@
 | ---------------- | ---------- |
 | macOS            | ✅         |
 | Ubuntu           | ✅         |
-| Fedora           | ❌         |
 | Arch             | ❌         |
 | Windows          | ✅         |
 
