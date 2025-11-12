@@ -7,60 +7,48 @@
 
 sudo apt update && \
 sudo apt install -y \
-	bat \
+	bison \
 	build-essential \
 	git \
+	libevent-dev \
 	nano \
-	tmux \
+	ncurses-dev \
+	pkg-config \
+	python3 \
 	unzip \
+	zlib1g-dev \
 	zsh
 
-# Symlink batcat to bat
-echo "Symlinking batcat to bat"
+# Create a bin directory if you don't have one
 mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
-
-# Install fzf binary
-if [ -d ~/.fzf ]; then
-	# Update existing fzf installation
-	cd ~/.fzf && git pull && cd - > /dev/null
-else
-	# Clone fzf if it doesn't exist
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-fi
-~/.fzf/install --bin
-
-# Symlink fzf binaries to ~/.local/bin
-echo "Symlinking fzf binaries to ~/.local/bin"
-mkdir -p ~/.local/bin
-if [ -f ~/.fzf/bin/fzf ]; then
-	ln -sf ~/.fzf/bin/fzf ~/.local/bin/fzf
-fi
-if [ -f ~/.fzf/bin/fzf-tmux ]; then
-	ln -sf ~/.fzf/bin/fzf-tmux ~/.local/bin/fzf-tmux
-fi
-
-# Install rust and cargo
-echo "Installing rust and cargo"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-
-export PATH=$PATH:$HOME/.cargo/bin # this adds cargo path to current shell
-source "$HOME/.cargo/env" # this loads cargo for the current shell
-
-# Install/Update eza
-cargo install eza
-
-# Install/Update nvm
-# install-nvm.sh.tmpl hash: {{ includeTemplate "install-nvm.sh.tmpl" . | sha256sum }}
-{{ includeTemplate "install-nvm.sh.tmpl" . }}
 
 # Install oh-my-posh
 echo "Installing oh-my-posh..."
 curl -s https://ohmyposh.dev/install.sh | bash
 
-# Install zoxide
-echo "Installing zoxide..."
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+# Install mise
+curl https://mise.run | sh
+
+# After mise is installed, source it to make it available in the script
+eval "$(~/.local/bin/mise activate bash)"  # or zsh if using zsh
+
+# Install packages using mise
+mise use -g bat@latest
+mise use -g fzf@latest
+mise use -g eza@latest
+mise use -g tmux@latest
+mise use -g zoxide@latest
+
+# Shim fzf-tmux to fzf --tmux
+# Create the wrapper
+cat > ~/.local/bin/fzf-tmux << 'EOF'
+#!/usr/bin/env bash
+# Wrapper to call fzf with --tmux flag instead of using fzf-tmux
+exec fzf --tmux 75%,75% "$@"
+EOF
+
+# Make it executable
+chmod +x ~/.local/bin/fzf-tmux
 
 {{      else if eq .chezmoi.osRelease.id "fedora" -}}
 echo "Unsupported Linux distribution"

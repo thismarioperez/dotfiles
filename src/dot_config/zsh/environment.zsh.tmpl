@@ -31,17 +31,12 @@ fi
 
 # set 1Password ssh agent for macOS
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-{{ end -}}
+{{ end }}
 
-{{- if eq .chezmoi.os "linux" }}
-# add Rust bin to path
-export PATH=$PATH:$HOME/.cargo/bin
-
-    {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-        # WSL-specific code
-    {{ else }}
-    {{ end }}
-{{ end -}}
+# safely add mise to path and activate it
+if [ -f "$HOME/.local/bin/mise" ]; then
+    eval "$($HOME/.local/bin/mise activate zsh)"
+fi
 
 # safely add android tools to PATH
 if [ -d "$HOME/Library/Android/sdk" ]; then
