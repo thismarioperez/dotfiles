@@ -145,6 +145,16 @@
                     "template": " \uf7b7 {{ if .Error }}{{ .Error }}{{ else }}{{ .Project }}{{ end }} "
                 },
                 {
+                    "type": "command",
+                    "style": "plain",
+                    "foreground": "#0CA0D8",
+                    "properties": {
+                        "command": "nats context info 2>&1 | head -1 | awk -F'\"' '{print $2}'",
+                        "shell": "bash"
+                    },
+                    "template": "{{ if ne .OS \"windows\" }} \ue7c4 {{ .Output }}{{ end }} "
+                },
+                {
                     "type": "shell",
                     "style": "plain",
                     "foreground": "#bec5d4",
