@@ -130,7 +130,7 @@
                     "type": "kubectl",
                     "style": "plain",
                     "foreground": "#326ce5",
-                    "template": " \uf308 {{ .Context }}{{ if .Namespace }}:{{ .Namespace }}{{ end }} "
+                    "template": " \uf308 {{ trunc 20 .Context }}{{ if .Namespace }}:{{ .Namespace }}{{ end }} "
                 },
                 {
                     "type": "aws",
