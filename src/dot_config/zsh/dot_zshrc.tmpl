@@ -31,15 +31,38 @@ bindkey -e # use emacs key bindings (default)
 bindkey -e "^p" history-search-backward
 bindkey -e "^n" history-search-forward
 
+# Load plugins (most plugins, but not zsh-syntax-highlighting or zsh-autosuggestions)
+# NOTE: fzf-tab needs to be loaded before compinit
+source "$ZDOTDIR/plugins.zsh"
+
 # Load and configure built-in zsh completion
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
 
-# Load plugins
-source "$ZDOTDIR/plugins.zsh"
+# Completion settings
+zstyle ':completion:*' menu select # enable menu selection
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # colored completion
+zstyle ':completion:*' completer _complete _match _approximate # enable approximate matches
+
+# Load zsh-autosuggestions (must be after compinit for completion strategy)
+if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    # Use both history and completion for suggestions
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    # Accept suggestion with right arrow key (default behavior)
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line vi-forward-char vi-end-of-line)
+    # Fetch suggestions asynchronously for better performance
+    ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
 
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
+# Load zsh-syntax-highlighting LAST (after compinit and everything else)
+if [ -f "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi

@@ -1,14 +1,6 @@
 # Plugins
 export ZSH_PLUGINS_PATH="$XDG_DATA_HOME/zsh/plugins"
 
-# zsh-autosuggestions
-if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    # configuration
-    export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
-
 # fzf
 if command -v fzf 1>/dev/null 2>&1; then # Check if global fzf is installed
     # fzf binary configuration
@@ -24,13 +16,17 @@ if command -v fzf 1>/dev/null 2>&1; then # Check if global fzf is installed
 
     # fzf-tab
     if [ -f "$ZSH_PLUGINS_PATH/fzf-tab/fzf-tab.plugin.zsh" ]; then
+        source "$ZSH_PLUGINS_PATH/fzf-tab/fzf-tab.plugin.zsh"
+
         # configuration
         # use popup mode in tmux
-        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+        if [[ -n "$TMUX" ]]; then
+            zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+        fi
+
         # disable sort when completing `git checkout`
         zstyle ':completion:*:git-checkout:*' sort false
 
-        source "$ZSH_PLUGINS_PATH/fzf-tab/fzf-tab.plugin.zsh"
     fi
 fi
 
@@ -55,9 +51,4 @@ fi
 # zoxide
 if command -v zoxide 1>/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
-fi
-
-# zsh-syntax-highlighting - ALWAYS LOAD LAST
-if [ -f "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
