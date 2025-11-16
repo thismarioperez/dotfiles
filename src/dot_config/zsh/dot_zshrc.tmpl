@@ -31,9 +31,12 @@ bindkey -e # use emacs key bindings (default)
 bindkey -e "^p" history-search-backward
 bindkey -e "^n" history-search-forward
 
-# Load plugins (most plugins, but not zsh-syntax-highlighting or zsh-autosuggestions)
-# NOTE: fzf-tab needs to be loaded before compinit
+# Source plugins file to define loading functions
 source "$ZDOTDIR/plugins.zsh"
+
+# Load plugins (Stage 1: pre-compinit plugins)
+# NOTE: fzf-tab needs to be loaded before compinit
+_load_plugins_pre_compinit
 
 # Load and configure built-in zsh completion
 autoload -Uz compinit
@@ -47,27 +50,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive com
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # colored completion
 zstyle ':completion:*' completer _complete _match _approximate # enable approximate matches
 
-# Load git plugin (must be after compinit for completion strategy)
-if [ -f "$ZSH_PLUGINS_PATH/git/git.plugin.zsh" ]; then
-    source "$ZSH_PLUGINS_PATH/git/git.plugin.zsh"
-fi
-
-# Load zsh-autosuggestions (must be after compinit for completion strategy)
-if [ -f "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    # Use both history and completion for suggestions
-    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-    # Accept suggestion with right arrow key (default behavior)
-    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(forward-char end-of-line vi-forward-char vi-end-of-line)
-    # Fetch suggestions asynchronously for better performance
-    ZSH_AUTOSUGGEST_USE_ASYNC=true
-
-    source "$ZSH_PLUGINS_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+# Load plugins (Stage 2: post-compinit plugins)
+_load_plugins_post_compinit
 
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
-# Load zsh-syntax-highlighting LAST (after compinit and everything else)
-if [ -f "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "$ZSH_PLUGINS_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+# Load plugins (Stage 3: final plugins - must be last)
+_load_plugins_final
