@@ -142,7 +142,7 @@
                     "type": "gcp",
                     "style": "plain",
                     "foreground": "#4285f4",
-                    "template": " {{ if .Project }} {{ .Project }}{{ end }} "
+                    "template": " \udb84\uddf6 {{ if .Project }}{{ .Project }}{{ end }} "
                 },
                 {
                     "type": "command",
