@@ -152,7 +152,7 @@
                         "command": "nats context info 2>&1 | head -1 | awk -F'\"' '{print $2}'",
                         "shell": "bash"
                     },
-                    "template": "{{ if ne .OS \"windows\" }} \ue7c4 {{ .Output }}{{ end }} "
+                    "template": "{{ if ne .OS \"windows\" }} \uf0ec {{ .Output }}{{ end }} "
                 },
                 {
                     "type": "shell",
