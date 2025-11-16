@@ -60,11 +60,6 @@ if command -v atuin 1>/dev/null 2>&1; then
 fi
 {{ end -}}
 
-# git
-if [ -f "$ZSH_PLUGINS_PATH/git/git.plugin.zsh" ]; then
-    source "$ZSH_PLUGINS_PATH/git/git.plugin.zsh"
-fi
-
 # oh-my-posh
 if command -v oh-my-posh 1>/dev/null 2>&1; then
     eval "$(oh-my-posh init zsh --config $XDG_DATA_HOME/oh-my-posh/themes/thismarioperez.omp.json)"
