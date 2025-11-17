@@ -14,7 +14,6 @@ main() {
     # Base colors
     black='#011627'
     white='#ffffff'
-    gray='#44596b'
     bright_black='#575656'
     bright_white='#ffffff'
 
@@ -36,6 +35,12 @@ main() {
 
     # Special colors
     error='#ef5350'
+
+    # UI Tab colors (from colors.json ui.tab)
+    tab_inactive_bg='#01111d'
+    tab_inactive_fg='#5f7e97'
+    tab_active_bg='#0b2942'
+    tab_active_fg='#d2dee7'
 
     # ============================================================
     # STATUS BAR - GLOBAL SETTINGS
@@ -67,12 +72,12 @@ main() {
     # WINDOW LIST - PILL-SHAPED STYLING
     # ============================================================
     # Inactive window colors
-    inactive_bg='#1a2332'
-    inactive_fg='#5c7a96'
+    inactive_bg="${tab_inactive_bg}"
+    inactive_fg="${tab_inactive_fg}"
 
     # Active window colors
-    active_bg='#0b2942'
-    active_fg='#82aaff'
+    active_bg="${tab_active_bg}"
+    active_fg="${tab_active_fg}"
 
     # Inactive window format
     # Format breakdown:
@@ -111,10 +116,10 @@ main() {
     # ============================================================
     # Shows time with seconds
     # Format breakdown:
-    #   1. Gray text color for subtle appearance
+    #   1. bright_black text color for subtle appearance
     #   2. Time format: hour:minute:second AM/PM
     local status_right=""
-    status_right+="#[fg=${gray}]"                              # Set gray text color
+    status_right+="#[fg=${bright_black}]"                      # Set bright_black text color
     status_right+="%l:%M:%S %p"                                # Time format (12-hour with seconds)
 
     tmux set-option -g status-right "${status_right}"
