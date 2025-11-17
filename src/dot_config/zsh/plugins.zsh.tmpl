@@ -26,6 +26,8 @@ _load_plugins_pre_compinit() {
             # use popup mode in tmux
             if [[ -n "$TMUX" ]]; then
                 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+                zstyle ':fzf-tab:*' popup-min-size 90 24  # width 90 cols, height 24 lines minimum
+                zstyle ':fzf-tab:*' fzf-flags --height=80% --preview-window=right:50%:wrap --border=rounded
             fi
 
             # disable sort when completing `git checkout`
