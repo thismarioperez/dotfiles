@@ -14,8 +14,10 @@ set -g @plugin 'omerxx/tmux-sessionx'
 
 #### Config ####
 
+{{ if eq .chezmoi.os "linux" -}}
 # Uses `fzf --tmux` instead of the `fzf-tmux` script (requires fzf >= 0.53).
-# set -g @sessionx-fzf-builtin-tmux 'on'
+set -g @sessionx-fzf-builtin-tmux 'on'
+{{ end -}}
 
 # True color settings
 set -g default-terminal "$TERM" # inherit terminal colors
