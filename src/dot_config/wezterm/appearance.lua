@@ -66,7 +66,7 @@ function module.apply_to_config(config)
             -- moves over inactive tabs
             inactive_tab_hover = {
                 bg_color = '#7e57c2',
-                fg_color = '#909090',
+                fg_color = '#d6deeb',
                 italic = true
 
                 -- The same options that were listed under the `active_tab` section above
@@ -86,7 +86,7 @@ function module.apply_to_config(config)
             -- moves over the new tab button
             new_tab_hover = {
                 bg_color = '#7e57c2',
-                fg_color = '#909090',
+                fg_color = '#d6deeb',
                 italic = true
 
                 -- The same options that were listed under the `active_tab` section above

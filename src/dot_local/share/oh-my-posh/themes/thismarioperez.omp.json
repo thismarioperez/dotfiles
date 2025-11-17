@@ -5,7 +5,7 @@
             "alignment": "left",
             "segments": [
                 {
-                    "foreground": "#bec5d4",
+                    "foreground": "#d6deeb",
                     "properties": {
                         "cache_duration": "none",
                         "windows": "\ue62a"

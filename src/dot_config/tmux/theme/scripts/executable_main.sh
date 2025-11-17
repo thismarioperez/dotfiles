@@ -17,7 +17,7 @@ main() {
     bright_red='#f78c6c'
     green='#addb67'
     bright_green='#22da6e'
-    yellow='#c5e478'
+    yellow='#addb67'
     bright_yellow='#ffeb95'
     blue='#82aaff'
     bright_blue='#5ca7e4'
@@ -25,10 +25,10 @@ main() {
     bright_magenta='#c792ea'
     cyan='#21c7a8'
     bright_cyan='#7fdbca'
-    white='#bec5d4'
+    white='#ffffff'
     bright_white='#ffffff'
     gray='#44596b'
-    error='#ce092f'
+    error='#ef5350'
 
     status_bar_bg=$black
     status_bar_fg=$black
