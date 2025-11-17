@@ -14,6 +14,17 @@ if [ ! -d $XDG_CACHE_HOME/zsh ]; then
     mkdir -p $XDG_CACHE_HOME/zsh
 fi
 
+# Zsh completions directory
+export ZSH_COMPLETIONS_PATH="$XDG_DATA_HOME/zsh/completions"
+
+# Create completions directory if it doesn't exist
+if [ ! -d "$ZSH_COMPLETIONS_PATH" ]; then
+    mkdir -p "$ZSH_COMPLETIONS_PATH"
+fi
+
+# Add custom completions to fpath (must be before compinit is called)
+fpath=($ZSH_COMPLETIONS_PATH $fpath)
+
 # update path
 # set PATH so it includes user's bin if it exists
 if [ -d "$HOME/bin" ]; then

@@ -50,6 +50,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive com
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # colored completion
 zstyle ':completion:*' completer _complete _match _approximate # enable approximate matches
 
+# Enhanced completion styling
+zstyle ':completion:*' group-name ''  # Group completions by category
+zstyle ':completion:*:descriptions' format '%B%d%b'  # Bold category headers
+zstyle ':completion:*:warnings' format 'No matches found'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*' rehash true  # Automatically find new executables in PATH
+
 # Load plugins (Stage 2: post-compinit plugins)
 _load_plugins_post_compinit
 
