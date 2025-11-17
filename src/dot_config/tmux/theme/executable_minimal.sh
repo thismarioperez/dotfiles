@@ -2,8 +2,9 @@
 
 main() {
     # Icons
-    icon_session=$'\ueb7f'
-    icon_window=$'\uf108'
+    icon_session=$'\uf108'
+    icon_pill_left=$'\ue0b6'
+    icon_pill_right=$'\ue0b4'
 
     # Night Owl Color Pallette
     black='#011627'
@@ -34,9 +35,13 @@ main() {
     tmux set-option -g status-left "#{?client_prefix,#[bg=${bright_magenta}]#[fg=${black}],#[bg=${black}]#[fg=${bright_magenta}]}${icon_session} #{session_name} #[bg=${black}]#[fg=${bright_black}]| "
     tmux set-option -g status-left-length 20
 
-    # Window list
-    tmux set-option -g window-status-format "#[fg=${white}]${icon_window} #{window_index}:#{window_name}#{window_flags} "
-    tmux set-option -g window-status-current-format "#[fg=${cyan}]${icon_window} #{window_index}:#{window_name}#{window_flags} "
+    # Window list - pill-shaped styling
+    inactive_bg='#1a2332'
+    inactive_fg='#5c7a96'
+    active_bg='#0b2942'
+    active_fg='#82aaff'
+    tmux set-option -g window-status-format "#[bg=${black},fg=${inactive_bg}]${icon_pill_left}#[bg=${inactive_bg},fg=${inactive_fg}]#{window_index}:#{window_name}#{window_flags}#[bg=${black},fg=${inactive_bg}]${icon_pill_right}"
+    tmux set-option -g window-status-current-format "#[bg=${black},fg=${active_bg}]${icon_pill_left}#[bg=${active_bg},fg=${active_fg}]#{window_index}:#{window_name}#{window_flags}#[bg=${black},fg=${active_bg}]${icon_pill_right}"
 
     # Status right
     tmux set-option -g status-right "#[fg=${gray}]%l:%M:%S %p"
