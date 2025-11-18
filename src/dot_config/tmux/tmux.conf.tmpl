@@ -2,7 +2,7 @@
 
 # Re-map prefix to [left_ctrl] + [a]
 set-option -g prefix C-a
-unbind-key C-a
+unbind C-b # unbind default prefix
 bind-key C-a send-prefix
 set-option -g repeat-time 0
 
@@ -62,6 +62,26 @@ set -g renumber-windows on
 
 # Prevent annoying index number added to session names
 set-option -g automatic-rename off
+
+#### Pop Ups ####
+# New Terminal
+bind T display-popup \
+    -d "#{pane_current_path}" \
+    -E "zsh"
+
+# LazyDocker
+bind L display-popup \
+    -d "#{pane_current_path}" \
+    -w 90% \
+    -h 90% \
+    -E "lazydocker"
+
+# LazyGit
+bind G display-popup \
+    -d "#{pane_current_path}" \
+    -w 90% \
+    -h 90% \
+    -E "lazygit"
 
 #### Theme ####
 run '~/.config/tmux/theme/nightowl_minimal/nightowl_minimal.tmux'
