@@ -1,91 +1,10 @@
-#### Prefix ####
+{{ includeTemplate "tmux/1-plugins.tmpl" . }}
 
-# Re-map prefix to [left_ctrl] + [a]
-set-option -g prefix C-a
-unbind C-b # unbind default prefix
-bind-key C-a send-prefix
-set-option -g repeat-time 0
+{{ includeTemplate "tmux/2-config.tmpl" . }}
 
-#### Plugins ####
+{{ includeTemplate "tmux/3-keybindings.tmpl" . }}
 
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'omerxx/tmux-sessionx'
-
-#### Config ####
-
-{{ if eq .chezmoi.os "linux" -}}
-# Uses `fzf --tmux` instead of the `fzf-tmux` script (requires fzf >= 0.53).
-set -g @sessionx-fzf-builtin-tmux 'on'
-{{ end -}}
-
-# True color settings
-set -g default-terminal "$TERM" # inherit terminal colors
-set -ag terminal-overrides ",$TERM:Tc"
-
-# Switch to marked window using back tick
-bind \` switch-client -t'{marked}'
-
-# Switch panes with Alt-arrow keys
-bind -nr M-Up select-pane -U
-bind -nr M-Down select-pane -D
-bind -nr M-Left select-pane -L
-bind -nr M-Right select-pane -R
-
-# vim-like pane switching
-bind -r k select-pane -U
-bind -r j select-pane -D
-bind -r h select-pane -L
-bind -r l select-pane -R
-
-# vim-like resizing pane
-bind -r C-k resize-pane -U 5
-bind -r C-j resize-pane -D 5
-bind -r C-h resize-pane -L 5
-bind -r C-l resize-pane -R 5
-
-# Mouse mode
-setw -g mouse on
-
-# Split panes using | and -
-bind-key | split-window -h
-bind-key - split-window -v
-
-# Start window index at 1
-set -g base-index 1
-
-# Start pane index at 1
-setw -g pane-base-index 1
-
-# Renumber windows when exiting open windows
-set -g renumber-windows on
-
-# Prevent annoying index number added to session names
-set-option -g automatic-rename off
-
-#### Pop Ups ####
-# New Terminal
-bind C-t display-popup \
-    -d "#{pane_current_path}" \
-    -E "zsh"
-
-# LazyDocker
-bind C-d display-popup \
-    -d "#{pane_current_path}" \
-    -w 90% \
-    -h 90% \
-    -E "zsh -i -c 'lazydocker'"
-
-# LazyGit
-bind C-g display-popup \
-    -d "#{pane_current_path}" \
-    -w 90% \
-    -h 90% \
-    -E "zsh -i -c 'lazygit'"
-
-#### Theme ####
-run '~/.config/tmux/theme/nightowl_minimal/nightowl_minimal.tmux'
-# run '~/.config/tmux/theme/nightowl_powerline/nightowl_powerline.tmux'
+{{ includeTemplate "tmux/4-theme.tmpl" . }}
 
 #### Initialize TPM ####
 
