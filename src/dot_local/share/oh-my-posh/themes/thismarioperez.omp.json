@@ -11,7 +11,7 @@
                         "display_host": false
                     },
                     "style": "plain",
-                    "template": "{{if .Root}} <#EF5350>\uf0e7 {{.UserName}}</> {{else}} {{.UserName}}{{end}} <#575656>|</> ",
+                    "template": "{{if .Root}}<#EF5350>\uf0e7 {{.UserName}}</> {{else}}{{.UserName}}{{end}} ",
                     "type": "session"
                 },
                 {
@@ -131,7 +131,17 @@
                     "type": "shell",
                     "style": "plain",
                     "foreground": "#bec5d4",
-                    "template": " \uf489 {{ .Name }} "
+                    "template": " \uf489 {{ .Name }}"
+                },
+                {
+                    "type": "command",
+                    "style": "plain",
+                    "foreground": "#22DA6E",
+                    "properties": {
+                        "command": "[ -n \"$EXTRA_ZSH_LOADED\" ] && echo \"+\"",
+                        "shell": "bash"
+                    },
+                    "template": "{{ if ne .OS \"windows\" }}{{ .Output }} {{ end }}"
                 },
                 {
                     "foreground": "#d6deeb",
