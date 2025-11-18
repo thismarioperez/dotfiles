@@ -61,8 +61,8 @@ main() {
     #   5. Space after pill
     
     # Session pill colors
-    session_normal_bg="${tab_inactive_bg}"    # Inactive tab color when prefix not active
-    session_normal_fg="${bright_magenta}"     # Bright magenta text when prefix not active
+    session_normal_bg="${bright_blue}"        # Bright blue background when prefix not active
+    session_normal_fg="${black}"              # Black text when prefix not active
     session_active_bg="${bright_magenta}"     # Bright magenta background when prefix active
     session_active_fg="${black}"              # Black text when prefix active
     
