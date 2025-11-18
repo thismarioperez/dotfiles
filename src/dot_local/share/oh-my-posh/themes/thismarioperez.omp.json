@@ -205,7 +205,7 @@
                 "command": "nats context info 2>&1 | head -1 | awk -F'\"' '{print $2}'",
                 "shell": "bash"
             },
-            "template": " {{ if ne .OS \"windows\" }} \uf0ec {{ .Output }}{{ end }}"
+            "template": " {{ if ne .OS \"windows\" }} \udb86\uddcf {{ .Output }}{{ end }}"
         }
     ],
     "version": 3
