@@ -15,7 +15,7 @@
                     "type": "os"
                 },
                 {
-                    "foreground": "#A599E9",
+                    "foreground": "#c792ea",
                     "properties": {
                         "cache_duration": "none",
                         "display_host": false
