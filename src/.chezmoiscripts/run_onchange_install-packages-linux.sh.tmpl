@@ -34,10 +34,13 @@ eval "$(~/.local/bin/mise activate bash)"  # or zsh if using zsh
 
 # Install packages using mise
 mise use -g bat@latest
+mise use -g fastfetch@latest
+mise use -g fd@latest
 mise use -g fzf@latest
 mise use -g eza@latest
+mise use -g gh@latest
+mise use -g lazydocker@latest
 mise use -g lazygit@latest
-mise use -g tmux@latest
 mise use -g zoxide@latest
 
 # Shim fzf-tmux to fzf --tmux
