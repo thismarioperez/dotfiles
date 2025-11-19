@@ -66,3 +66,12 @@ chezmoi init --apply --verbose https://github.com/thismarioperez/dotfiles.git
 ### Themes
 
 All custom themes are based on the [Night Owl](https://github.com/sdras/night-owl-vscode-theme) color palette.
+
+### Fonts
+
+The current font used across all code editors and terminals emulators is `JetbrainsMono Nerd Font Mono`.
+
+This is a patched version of the open-source JetBrains Mono font.
+
+-   [Download Patched font here](https://www.nerdfonts.com/font-downloads).
+-   [Original Font](https://www.jetbrains.com/lp/mono/).

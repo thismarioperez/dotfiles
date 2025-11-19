@@ -7,7 +7,7 @@ local module = {}
 -- Apply config
 function module.apply_to_config(config)
     -- Font
-    config.font = wezterm.font("MonoLisa Nerd Font", {
+    config.font = wezterm.font("JetBrainsMono Nerd Font Mono", {
         weight = "Bold"
     })
     config.font_size = 16.0

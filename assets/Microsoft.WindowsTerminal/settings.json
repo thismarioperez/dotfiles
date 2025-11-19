@@ -38,7 +38,7 @@
         "defaults": {
             "colorScheme": "Night Owl",
             "font": {
-                "face": "MonoLisa Nerd Font"
+                "face": "JetBrainsMono Nerd Font Mono"
             },
             "opacity": 90,
             "useAcrylic": true

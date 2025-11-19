@@ -29,19 +29,19 @@ blinking = "On"
 size = 16.0
 
 [font.bold]
-family = "MonoLisa Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonoLisa Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MonoLisa Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "MonoLisa Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Regular"
 
 [colors.primary]
