@@ -5,11 +5,6 @@ unbind C-b # unbind default prefix
 bind-key C-a send-prefix
 set-option -g repeat-time 0
 
-{{ if eq .chezmoi.os "linux" -}}
-# Uses `fzf --tmux` instead of the `fzf-tmux` script (requires fzf >= 0.53).
-set -g @sessionx-fzf-builtin-tmux 'on'
-{{ end -}}
-
 # True color settings
 set -g default-terminal "$TERM" # inherit terminal colors
 set -ag terminal-overrides ",$TERM:Tc"
