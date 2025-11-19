@@ -1,7 +1,7 @@
 #### Keybindings ####
 # Refresh tmux Configuration
 bind R source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"\
-    \; display-message "Tmux configuration reloaded from $XDG_CONFIG_HOME/tmux/tmux.conf"
+    \; display-message "Reloaded tmux configuration: $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # Switch to marked window using back tick
 bind \` switch-client -t'{marked}'
@@ -97,7 +97,8 @@ bind F display-popup \
     -d "#{pane_current_path}" \
     -w 80% \
     -h 80% \
-    -E "find ~/Repositories ~/repositories ~/.local/share/chezmoi -maxdepth 1 -type d 2>/dev/null | \
+    -E "find ~/[Rr]epositories $XDG_DATA_HOME $XDG_CONFIG_HOME -maxdepth 1 -type d 2>/dev/null | \
+    sort -u | \
     fzf --reverse --prompt='Create session from project: ' \
         --preview 'ls -la {}' \
         --preview-window=right:60% | \
