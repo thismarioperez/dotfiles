@@ -18,11 +18,21 @@ bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
 
+# Restore "last window" functionality (lost from 'l' override)
+bind Tab last-window
+
 # vim-like resizing pane
 bind -r C-k resize-pane -U 5
 bind -r C-j resize-pane -D 5
 bind -r C-h resize-pane -L 5
 bind -r C-l resize-pane -R 5
+
+# Improved split panes
+bind-key \" split-window -h \
+    -c "#{pane_current_path}"
+
+bind-key % split-window -v \
+    -c "#{pane_current_path}"
 
 # Split panes using | and -
 bind-key | split-window -h \
@@ -33,19 +43,19 @@ bind-key - split-window -v \
 
 #### Pop Ups ####
 # New Terminal
-bind C-t display-popup \
+bind T display-popup \
     -d "#{pane_current_path}" \
     -E "zsh"
 
 # LazyDocker
-bind C-d display-popup \
+bind D display-popup \
     -d "#{pane_current_path}" \
     -w 90% \
     -h 90% \
     -E "zsh -i -c 'lazydocker'"
 
 # LazyGit
-bind C-g display-popup \
+bind G display-popup \
     -d "#{pane_current_path}" \
     -w 90% \
     -h 90% \
@@ -72,15 +82,8 @@ bind O display-popup \
         tmux new-session -d -s \"\$session\" -c \"#{pane_current_path}\"; \
     tmux switch-client -t \"\$session\"'"
 
-# Create new session from current directory
-bind N display-popup \
-    -d "#{pane_current_path}" \
-    -E "read -p 'New session name: ' name && \
-    tmux new-session -d -s \"\$name\" -c \"#{pane_current_path}\" && \
-    tmux switch-client -t \"\$name\""
-
 # Delete session(s) interactively
-bind D display-popup \
+bind C-d display-popup \
     -d "#{pane_current_path}" \
     -w 60% \
     -h 60% \
