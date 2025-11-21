@@ -1,15 +1,15 @@
-# set xdg directories
+# Set XDG directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# create cache directory if it doesn't exist
+# Create cache directory if it doesn't exist
 if [ ! -d $XDG_CACHE_HOME ]; then
     mkdir -p $XDG_CACHE_HOME
 fi
 
-# create zsh cache directory
+# Create zsh cache directory
 if [ ! -d $XDG_CACHE_HOME/zsh ]; then
     mkdir -p $XDG_CACHE_HOME/zsh
 fi
@@ -25,31 +25,31 @@ fi
 # Add custom completions to fpath (must be before compinit is called)
 fpath=($ZSH_COMPLETIONS_PATH $fpath)
 
-# update path
-# set PATH so it includes user's bin if it exists
+# Update path
+# Set PATH so it includes user's bin if it exists
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# Set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
 {{- if eq .chezmoi.os "darwin" }}
-# safely add Homebrew to PATH on apple silicon macs
+# Safely add Homebrew to PATH on Apple Silicon Macs
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# set 1Password ssh agent for macOS
+# Set 1Password SSH agent for macOS
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{ end }}
 
-# safely add mise to path and activate it
+# Safely add mise to path and activate it
 if [ -f "$HOME/.local/bin/mise" ]; then
     eval "$($HOME/.local/bin/mise activate zsh)"
 fi
 
-# safely add android tools to PATH
+# Safely add Android tools to PATH
 if [ -d "$HOME/Library/Android/sdk" ]; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     export PATH=$PATH:$ANDROID_HOME/emulator
@@ -58,7 +58,7 @@ if [ -d "$HOME/Library/Android/sdk" ]; then
     export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
-# safely add pnpm to PATH
+# Safely add pnpm to PATH
 PNPM_HOME="${HOME}/.local/share/pnpm"
 if [ -d "$PNPM_HOME" ]; then
     case ":$PATH:" in
@@ -67,10 +67,10 @@ if [ -d "$PNPM_HOME" ]; then
     esac
 fi
 
-# set PATH for local node_modules - Keep this last in case node modules don't exist
+# Set PATH for local node_modules - Keep this last in case node modules don't exist
 PATH="$PATH:node_modules/.bin"
 PATH="$PATH:.node_modules/.bin"
 
-# remove duplicate entries from $PATH
-# zsh uses $path array along with $PATH
+# Remove duplicate entries from $PATH
+# Zsh uses $path array along with $PATH
 typeset -U PATH path

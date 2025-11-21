@@ -2,6 +2,17 @@
 #   ---------------------------------------
 #   Darwin(MacOS) aliases
 #   ---------------------------------------
+
+#   -------------------------------
+#   FILE AND FOLDER MANAGEMENT
+#   -------------------------------
+alias make1mb='mkfile 1m ./1MB.dat'    # make1mb:      Creates a file of 1mb size (all zeros)
+alias make5mb='mkfile 5m ./5MB.dat'    # make5mb:      Creates a file of 5mb size (all zeros)
+alias make10mb='mkfile 10m ./10MB.dat' # make10mb:     Creates a file of 10mb size (all zeros)
+
+#   -------------------------------
+#   SYSTEM
+#   -------------------------------
 # Dump brew packages to a brewfile:
 alias brew_dump="brew bundle dump -f --no-lock --file=~/Desktop/Brewfile"
 
@@ -28,11 +39,23 @@ alias screensaverDesktop="/System/Library/Frameworks/ScreenSaver.framework/Resou
 
 # force computer into sleep mode
 function sleepnow () {
-  osascript -e "tell app "finder" to sleep";
+  osascript -e 'tell app "Finder" to sleep'
 }
 
 # force computer to shutdown
 function off () {
-  osascript -e "tell app "finder" to shutdown";
+  osascript -e 'tell app "Finder" to shutdown'
 }
+
+#   ---------------------------
+#   NETWORKING
+#   ---------------------------
+alias flushDNS='dscacheutil -flushcache'          # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'           # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP' # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP' # lsockT:       Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'            # ipInfo0:      Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'            # ipInfo1:      Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'      # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                # showBlocked:  All ipfw rules inc/ blocked IPs
 {{ end -}}

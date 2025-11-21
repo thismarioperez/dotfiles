@@ -1,10 +1,35 @@
-source "$ZDOTDIR/environment.zsh"
+# ============================================================================
+# ZSH Configuration Load Order
+# ============================================================================
+# 1. environment.zsh    - Sets up XDG dirs, PATH, and environment variables
+#                          Must be first (other files depend on these)
+# 2. plugins.zsh        - Defines plugin loading functions
+#                          Must be before compinit (fzf-tab needs it)
+# 3. extra.zsh          - Optional user customizations (git-ignored)
+# 4. [compinit]         - Initialize completion system
+# 5. [plugins post]     - Load plugins that need compinit
+# 6. aliases.zsh        - Load aliases (can reference anything above)
+# 7. [plugins final]    - Load final plugins (syntax-highlighting must be last)
+# ============================================================================
 
-# add extra config if it exists.
-# use this for customizing zsh environment without modifying chezmoi dotfiles
+# Helper: safe source with error handling for syntax errors
+safe_source() {
+    source "$1" || {
+        echo "Error: Failed to source $1 (syntax error?)" >&2
+        return 1
+    }
+}
+
+safe_source "$ZDOTDIR/environment.zsh"
+
+# Source plugins file to define loading functions
+safe_source "$ZDOTDIR/plugins.zsh"
+
+# Add extra config if it exists.
+# Use this for customizing zsh environment without modifying chezmoi dotfiles
 if [ -f "$ZDOTDIR/extra.zsh" ]; then
-    export EXTRA_ZSH_LOADED=1 # flag to indicate that extra.zsh has been loaded
-    source "$ZDOTDIR/extra.zsh"
+    export EXTRA_ZSH_LOADED=1 # Flag to indicate that extra.zsh has been loaded
+    safe_source "$ZDOTDIR/extra.zsh"
 fi
 
 # autoload global functions
@@ -27,12 +52,9 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 
 # Keybindings
-bindkey -e # use emacs key bindings (default)
+bindkey -e # Use emacs key bindings (default)
 bindkey -e "^p" history-search-backward
 bindkey -e "^n" history-search-forward
-
-# Source plugins file to define loading functions
-source "$ZDOTDIR/plugins.zsh"
 
 # Load plugins (Stage 1: pre-compinit plugins)
 # NOTE: fzf-tab needs to be loaded before compinit
@@ -41,14 +63,14 @@ _load_plugins_pre_compinit
 # Load and configure built-in zsh completion
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
-# automatically load bash completion functions
+# Automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
 
 # Completion settings
-zstyle ':completion:*' menu select # enable menu selection
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive completion
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # colored completion
-zstyle ':completion:*' completer _complete _match _approximate # enable approximate matches
+zstyle ':completion:*' menu select # Enable menu selection
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # Colored completion
+zstyle ':completion:*' completer _complete _match _approximate # Enable approximate matches
 
 # Enhanced completion styling
 zstyle ':completion:*' group-name ''  # Group completions by category
@@ -62,7 +84,7 @@ zstyle ':completion:*' rehash true  # Automatically find new executables in PATH
 _load_plugins_post_compinit
 
 # Aliases
-source "$ZDOTDIR/aliases.zsh"
+safe_source "$ZDOTDIR/aliases.zsh"
 
 # Load plugins (Stage 3: final plugins - must be last)
 _load_plugins_final
