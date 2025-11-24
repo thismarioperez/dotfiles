@@ -125,7 +125,7 @@
                         "display_mode": "files",
                         "fetch_version": true
                     },
-                    "template": " \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+                    "template": " \ue627 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
                 },
                 {
                     "type": "shell",
