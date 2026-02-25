@@ -37,6 +37,7 @@ autoload is-at-least
 
 # Default Editor
 EDITOR="{{ if eq .chezmoi.os "darwin" -}}cursor{{ else -}}vim{{ end }}"
+export GIT_EDITOR="{{ if eq .chezmoi.os "darwin" -}}cursor --wait{{ else -}}vim{{ end }}"
 
 # History configuration
 HISTFILE=$XDG_CACHE_HOME/zsh/histfile
