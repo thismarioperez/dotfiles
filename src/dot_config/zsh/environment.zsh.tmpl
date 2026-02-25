@@ -36,6 +36,11 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Safely add mise to path and activate it
+if [ -f "$HOME/.local/bin/mise" ]; then
+    eval "$($HOME/.local/bin/mise activate zsh)"
+fi
+
 {{- if eq .chezmoi.os "darwin" }}
 # Safely add Homebrew to PATH on Apple Silicon Macs
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -43,11 +48,6 @@ fi
 # Set 1Password SSH agent for macOS
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{ end }}
-
-# Safely add mise to path and activate it
-if [ -f "$HOME/.local/bin/mise" ]; then
-    eval "$($HOME/.local/bin/mise activate zsh)"
-fi
 
 # Safely add Android tools to PATH
 if [ -d "$HOME/Library/Android/sdk" ]; then
