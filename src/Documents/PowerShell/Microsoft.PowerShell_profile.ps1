@@ -24,6 +24,15 @@ if (Get-Module -ListAvailable -Name Terminal-Icons) {
     Import-Module -Name Terminal-Icons
 }
 
+# Load mise
+$miseBin = Get-ChildItem -Path "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\jdx.mise*" -Recurse -Filter "mise.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
+
+if ($miseBin) {
+    (& $miseBin.FullName activate pwsh) | Out-String | Invoke-Expression
+} else {
+    Write-Warning "mise not found. Install with: winget install jdx.mise"
+}
+
 ################################################################################
 # Aliases
 ################################################################################
