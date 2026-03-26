@@ -33,6 +33,14 @@ if ($miseBin) {
     Write-Warning "mise not found. Install with: winget install jdx.mise"
 }
 
+# Load claude code
+$claudeDir = Get-ChildItem -Path "$env:APPDATA\Claude\claude-code" -Directory -ErrorAction SilentlyContinue | Sort-Object Name -Descending | Select-Object -First 1
+if ($claudeDir) {
+    $env:Path += ";$($claudeDir.FullName)"
+} else {
+    Write-Warning "claude not found. Install with: winget install Anthropic.ClaudeCode"
+}
+
 ################################################################################
 # Aliases
 ################################################################################
