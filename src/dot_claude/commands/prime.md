@@ -4,7 +4,7 @@ description: Gain a general understanding of the codebase
 
 # Prime
 
-Execute the `Run`, `Reade` and `Report` sections to understand the codebase then summarize your understanding
+Execute the `Run`, `Read` and `Report` sections to understand the codebase then summarize your understanding
 
 ## Run
 
