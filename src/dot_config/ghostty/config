@@ -17,6 +17,7 @@ window-theme = ghostty
 scrollbar = system
 title = " "
 keybind = shift+enter=text:\x1b\r
+custom-shader-animation = false
 custom-shader = ~/.config/ghostty/shaders/mnoise.glsl
 custom-shader = ~/.config/ghostty/shaders/cursor-warp.glsl
 custom-shader = ~/.config/ghostty/shaders/chromatic-aberration.glsl

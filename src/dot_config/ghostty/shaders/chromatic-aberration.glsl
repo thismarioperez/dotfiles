@@ -2,11 +2,11 @@
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord / iResolution.xy;
+    vec2 shift = vec2(OFFSET, 0.0);
 
-    float r = texture(iChannel0, uv + vec2(OFFSET, 0.0)).r;
-    float g = texture(iChannel0, uv).g;
-    float b = texture(iChannel0, uv - vec2(OFFSET, 0.0)).b;
-    float a = texture(iChannel0, uv).a;
+    vec4 center = texture(iChannel0, uv);
+    float r = texture(iChannel0, uv + shift).r;
+    float b = texture(iChannel0, uv - shift).b;
 
-    fragColor = vec4(r, g, b, a);
+    fragColor = vec4(r, center.g, b, center.a);
 }
