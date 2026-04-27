@@ -1,23 +1,32 @@
+# ── Font ─────────────────────────────────────────────────────────────────────
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 16
 font-style = Bold
 adjust-cell-width = -20%
+
+# ── Theme & Colors ────────────────────────────────────────────────────────────
 theme = Night Owl
 background-opacity = 0.9
 background-blur = 16
-cursor-style = block
-shell-integration-features = no-cursor
 cursor-color = 7e57c2
+
+# ── Cursor ────────────────────────────────────────────────────────────────────
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+# ── Window ────────────────────────────────────────────────────────────────────
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
 window-decoration = auto
 window-subtitle = false
 window-theme = ghostty
-scrollbar = system
 title = " "
+
+# ── Keybindings ───────────────────────────────────────────────────────────────
 keybind = shift+enter=text:\x1b\r
+
+# ── Shaders ───────────────────────────────────────────────────────────────────
 custom-shader-animation = false
-custom-shader = ~/.config/ghostty/shaders/mnoise.glsl
 custom-shader = ~/.config/ghostty/shaders/cursor-warp.glsl
 custom-shader = ~/.config/ghostty/shaders/chromatic-aberration.glsl
