@@ -355,12 +355,12 @@ Use this format for all color tables:
 ```markdown
 | Color                                                                 | Hex        | Usage             |
 | --------------------------------------------------------------------- | ---------- | ----------------- |
-| ![#hexcode](https://via.placeholder.com/15/hexcode/hexcode.png) Label | `#hexcode` | Usage description |
+| ![#hexcode](https://placehold.co/15/hexcode/hexcode.png) Label | `#hexcode` | Usage description |
 ```
 
 **Important**:
 
--   The placeholder URL format is: `https://via.placeholder.com/15/HEXCODE/HEXCODE.png` (no # symbol in URL)
+-   The placeholder URL format is: `https://placehold.co/15/HEXCODE/HEXCODE.png` (no # symbol in URL)
 -   Remove the `#` from hex codes in the placeholder URL
 -   Keep the `#` in the inline code backticks
 
@@ -563,8 +563,8 @@ color_10: "#EF5350" # Bright Red (Command error)
 **Output (README.md):**
 
 ```markdown
-| ![#ef5350](https://via.placeholder.com/15/ef5350/ef5350.png) Red | `#ef5350` | Terminal red (errors, strings) |
-| ![#ef5350](https://via.placeholder.com/15/ef5350/ef5350.png) Bright Red | `#ef5350` | Terminal bright red (errors) |
+| ![#ef5350](https://placehold.co/15/ef5350/ef5350.png) Red | `#ef5350` | Terminal red (errors, strings) |
+| ![#ef5350](https://placehold.co/15/ef5350/ef5350.png) Bright Red | `#ef5350` | Terminal bright red (errors) |
 ```
 
 ### Example 2: Syntax Colors
@@ -597,7 +597,7 @@ color_10: "#EF5350" # Bright Red (Command error)
 **Output (README.md):**
 
 ```markdown
-| ![#c792ea](https://via.placeholder.com/15/c792ea/c792ea.png) Keyword | `#c792ea` | Keywords, operators, storage types |
+| ![#c792ea](https://placehold.co/15/c792ea/c792ea.png) Keyword | `#c792ea` | Keywords, operators, storage types |
 ```
 
 ### Example 3: UI Colors
@@ -629,7 +629,7 @@ color_10: "#EF5350" # Bright Red (Command error)
 **Output (README.md):**
 
 ```markdown
-| ![#1d3b53](https://via.placeholder.com/15/1d3b53/1d3b53.png) Selection | `#1d3b53` | Text selection |
+| ![#1d3b53](https://placehold.co/15/1d3b53/1d3b53.png) Selection | `#1d3b53` | Text selection |
 ```
 
 ## Backward Compatibility Notes
