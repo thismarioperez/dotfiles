@@ -2,20 +2,21 @@
 @REM Install Terminal Icons
 
 @REM Runs as Administrator to install the module.
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""Install-Module -Name Terminal-Icons -Repository PSGallery -Force""' -Verb RunAs}"
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command ""Install-Module -Name Terminal-Icons -Repository PSGallery -Force""' -Verb RunAs}"
 
 @REM Install a module without admin
 @REM PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""Install-Module PSReadLine""'}"
 
 @REM Install Windows Packages
+winget install -e --id jdx.mise --accept-package-agreements --accept-source-agreements
 winget install -e --id Anysphere.Cursor --accept-package-agreements --accept-source-agreements
 winget install -e --id Git.Git --accept-package-agreements --accept-source-agreements
 winget install -e --id Github.cli --accept-package-agreements --accept-source-agreements
 winget install -e --id JanDeDobbeleer.OhMyPosh --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.WindowsTerminal --accept-package-agreements --accept-source-agreements
 winget install -e --id Microsoft.VisualStudioCode --accept-package-agreements --accept-source-agreements
-winget install -e --id jdx.mise --accept-package-agreements --accept-source-agreements
 winget install -e --id wez.wezterm --accept-package-agreements --accept-source-agreements
 winget install -e --id=DEVCOM.JetBrainsMonoNerdFont --accept-package-agreements --accept-source-agreements
+winget install -e --id=AgileBits.1Password.CLI --accept-package-agreements --accept-source-agreements
 exit 0
 {{ end -}}
