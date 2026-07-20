@@ -43,7 +43,7 @@
 - Verify with citations. Every claim needs a source. If you can't find one, retract the claim.
 - Provide links in your output to any citations or directs quotes used
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 # Tools
 
 @RTK.md
